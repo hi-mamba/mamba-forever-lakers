@@ -1,0 +1,49 @@
+debug: true
+
+server:
+  port: 8080
+  tomcat:
+    basedir: ./
+    accesslog:
+      # 由于开启了spring admin 监控，监控的access日志比较多，因此先关闭，找到解决过滤监控日志打印到access 在打开
+      enabled: false
+      prefix: access_log
+      suffix: .log
+      pattern: '%{yyyy-MM-dd HH:mm:ss}t [%I] %{X-Forwarded-For}i %a %A %s |%r| %b %s (%D ms)'
+      file-date-format: .yyyy-MM-dd
+      buffered: true
+      rename-on-rotate: false
+      # 指定access文件的路径
+      directory: logs
+      request-attributes-enabled: true
+    accept-count: 10
+    max-connections: 100
+    max-threads: 10
+
+spring:
+  redis:
+    cluster:
+      # 各 Redis 节点信息
+      nodes:
+        - 172.23.3.19:7001
+        - 172.23.3.19:7002
+        - 172.23.3.19:7003
+        - 172.23.3.19:7004
+        - 172.23.3.19:7005
+        - 172.23.3.19:7006
+      max-redirects: 3 # 获取失败 最大重定向次数
+    lettuce:
+      pool:
+        max-active: 1000  #连接池最大连接数（使用负值表示没有限制）
+        max-idle: 10 # 连接池中的最大空闲连接
+        min-idle: 5 # 连接池中的最小空闲连接
+        max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
+
+
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR

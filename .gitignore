@@ -14,7 +14,7 @@ gradle
 *.ipr
 *.iml
 *.iws
-
+.idea
 # temp ignore
 *.log
 *.cache

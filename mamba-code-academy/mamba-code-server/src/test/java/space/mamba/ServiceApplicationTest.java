@@ -1,6 +1,7 @@
 package space.mamba;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,5 +23,10 @@ public class ServiceApplicationTest {
 
     public static void main(String[] args) {
         SpringApplication.run(ServiceApplicationTest.class, args);
+    }
+
+    @Test
+    public void print() {
+        System.out.println("hello world");
     }
 }

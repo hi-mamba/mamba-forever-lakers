@@ -45,7 +45,9 @@ subprojects {
 
     // java编译的时候缺省状态下会因为中文字符而失败
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
-
+    bootJar{
+        mainClassName = 'space.mamba.ServiceApplication'
+    }
     repositories {
         mavenLocal()
         maven {
@@ -53,6 +55,7 @@ subprojects {
         }
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "http://repo.maven.apache.org/maven2" }
+
         mavenCentral()
     }
 
@@ -73,7 +76,10 @@ subprojects {
         testCompile group: 'org.mockito', name: 'mockito-core', version: '2.27.0'
 
         compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
+        compile group: 'com.google.guava', name: 'guava', version: '27.1-jre'
+
 
     }
     configurations {

@@ -110,6 +110,20 @@ public class CacheAvalancheService {
 
     /**
      * 二级缓存
-     * */
-
+     *
+     * 建立备份缓存，缓存A和缓存B，A设置超时时间，B不设值超时时间，先从A读缓存，A没有读B，并且更新A缓存和B缓存;
+     *
+     * <p>
+     * https://juejin.im/post/5b961172f265da0ab7198f4d
+     */
+    public Object getByKey(String keyA, String keyB) {
+        Object value = template.opsForValue().get(keyA);
+        if (value == null) {
+            value = template.opsForValue().get(keyB);
+            String newValue = "getFromDbById()";
+            template.opsForValue().set(keyA, newValue, 31, TimeUnit.DAYS);
+            template.opsForValue().set(keyB, newValue);
+        }
+        return value;
+    }
 }

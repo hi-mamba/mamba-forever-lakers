@@ -4,6 +4,7 @@ buildscript {
         maven {
             url "/usr/local/repository"
         }
+        mavenLocal() //优先查找本地maven库，性能最好
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "http://repo.maven.apache.org/maven2" }
         mavenCentral()
@@ -21,11 +22,10 @@ buildscript {
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
     }
 }
-// 所有模块/项目的通用配置
+// 所有模块/项目的通用配置，为所有项目(包括根项目和所有子项目)设置group和version属性
 allprojects {
 
     apply plugin: 'idea'
-
     group 'space.mamba'
     version '1.0-SNAPSHOT'
 
@@ -35,24 +35,28 @@ allprojects {
 
 // 子模块/项目的统一配置
 subprojects {
-
+    // 所有子项目应用Java插件
     apply plugin: 'java'
     apply plugin: "org.springframework.boot"
     apply plugin: 'com.google.protobuf'
 
+    // 指定JDK版本
     sourceCompatibility = 12
     targetCompatibility = 12
 
-    // java编译的时候缺省状态下会因为中文字符而失败
+    // 指定编码格式, java编译的时候缺省状态下会因为中文字符而失败
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
-    bootJar{
+    bootJar {
         mainClassName = 'space.mamba.ServiceApplication'
     }
+
+
     repositories {
-        mavenLocal()
+
         maven {
             url "/usr/local/repository"
         }
+       // mavenLocal()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "http://repo.maven.apache.org/maven2" }
 
@@ -61,8 +65,8 @@ subprojects {
 
     ext {//依赖版本
         springBootVersion = "2.1.6.RELEASE"
-        mysqlConnectorVersion = "8.0.13"
-
+        mysqlConnectorVersion = "8.0.17"
+        mybatisSpringBootVersion = "2.1.0"
         fastjsonVersion = "1.2.54"
     }
     dependencies {
@@ -84,6 +88,19 @@ subprojects {
     }
     configurations {
         //移除
+        //移除spring boot 默认logger依赖
+        all*.exclude module: 'spring-boot-starter-logging'
+    }
+    // gradle 5.x version
+    task dev_local {
+        bootRun { systemProperty "spring.profiles.active", "local" }
+    }
 
+    task dev_kobe {
+        bootRun { systemProperty "spring.profiles.active", "kobe" }
+    }
+
+    task prod {
+        bootRun { systemProperty "spring.profiles.active", "prod" }
     }
 }

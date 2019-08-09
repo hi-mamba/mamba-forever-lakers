@@ -11,3 +11,7 @@
 
 - 解决办法
 >  重新导入项目，或者提交代码之后，重新clone 项目。之前尝试过 gradle build 不起作用.
+
+
+## 启动项目
+> gradle clean source:jar package -P prod

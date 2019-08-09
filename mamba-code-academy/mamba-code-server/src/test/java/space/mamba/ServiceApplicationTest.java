@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  *
  * </pre>
  */
+@ActiveProfiles("kobe")
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

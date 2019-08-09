@@ -1,8 +1,17 @@
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-
+    //如果这里导入JAR 有问题,那么就是IDEA 的锅, https://www.jianshu.com/p/71ec697b8353
+    compile project(':mamba-code-common')
     compile("org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion")
+
+    compile("mysql:mysql-connector-java:$mysqlConnectorVersion")
+    //compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisSpringBootVersion")
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.0'
+
+
     // redis依赖commons-pool 这个依赖一定要添加
     compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.6.2'
+
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-stream-kafka', version: '2.2.0.RELEASE'
+
 }

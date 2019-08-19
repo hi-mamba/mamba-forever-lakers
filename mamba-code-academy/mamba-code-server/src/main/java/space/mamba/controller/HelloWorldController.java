@@ -15,9 +15,6 @@ import space.mamba.service.business.UserInfoService;
 @RestController
 public class HelloWorldController {
 
-    @Autowired
-    private UserInfoService userInfoService;
-
     @GetMapping("/hi")
     public String hi() {
         return "hi";

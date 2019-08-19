@@ -31,6 +31,14 @@ allprojects {
 
     // 如果在整个想倒入执行的时候有异常
     //
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://dl.bintray.com/jetbrains/anko' } //这是你需要加入的，这个是解决这个问题的关键地方，我就是添加这个maven后不再报上面的错误了
+        maven { url "https://maven.google.com" } //谷歌广告
+    }
 }
 
 // 子模块/项目的统一配置
@@ -56,7 +64,7 @@ subprojects {
         maven {
             url "/usr/local/repository"
         }
-       // mavenLocal()
+        // mavenLocal()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "http://repo.maven.apache.org/maven2" }
 
@@ -79,17 +87,25 @@ subprojects {
 
         testCompile group: 'org.mockito', name: 'mockito-core', version: '2.27.0'
 
-        compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
-
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
+        compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+        //https://projectlombok.org/setup/gradle
+        compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+        annotationProcessor 'org.projectlombok:lombok:1.18.8'
         compile group: 'com.google.guava', name: 'guava', version: '27.1-jre'
 
 
     }
+
     configurations {
         //移除
         //移除spring boot 默认logger依赖
         all*.exclude module: 'spring-boot-starter-logging'
+        all*.exclude module: 'common-logs'
+        all*.exclude group: 'log4j'
+        all*.exclude group: 'org.apache.logging.log4j'
+        all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
     }
     // gradle 5.x version
     task dev_local {

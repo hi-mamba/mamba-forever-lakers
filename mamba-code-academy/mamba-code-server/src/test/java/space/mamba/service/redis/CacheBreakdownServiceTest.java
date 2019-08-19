@@ -29,7 +29,7 @@ public class CacheBreakdownServiceTest extends ServiceApplicationTest {
         String key = "key_getForLock";
 
         String value = null;
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 2; i++) {
             executor.submit(() -> {
                 cacheBreakdownService.getForLock(key);
             });

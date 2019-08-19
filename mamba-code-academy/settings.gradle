@@ -1,4 +1,5 @@
 rootProject.name = 'mamba-code-academy'
 include 'mamba-code-common'
 include 'mamba-code-server'
+include 'mamba-code-mq'
 

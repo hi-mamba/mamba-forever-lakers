@@ -11,11 +11,10 @@ import space.mamba.model.UserInfo;
 /**
  * The interface User info mapper.
  *
- * @param <selectByAll> the type parameter
  * @author pankui
  */
 @Mapper
-public interface UserInfoMapper<selectByAll> {
+public interface UserInfoMapper {
 
     /**
      * Delete by primary key int.

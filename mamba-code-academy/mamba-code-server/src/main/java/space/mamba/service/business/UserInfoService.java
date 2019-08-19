@@ -1,5 +1,6 @@
 package space.mamba.service.business;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import space.mamba.dao.UserInfoMapper;
 import space.mamba.model.UserInfo;
@@ -10,12 +11,15 @@ import java.util.List;
 /**
  * @author pankui
  */
+@Slf4j
 @Service
 public class UserInfoService {
 
     @Resource
     private UserInfoMapper userInfoMapper;
 
+   // @Autowired
+   // private KafkaProduceService kafkaProduceService;
 
     public List<UserInfo> list(UserInfo userInfo) {
         return userInfoMapper.selectByAll(userInfo);
@@ -30,6 +34,8 @@ public class UserInfoService {
     }
 
     public int insertSelective(UserInfo record) {
+        log.info("## insert ...");
+       // kafkaProduceService.sendMessage(JSONObject.toJSONString(record));
         return userInfoMapper.insertSelective(record);
     }
 

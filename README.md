@@ -47,4 +47,27 @@ annotationProcessor 'org.projectlombok:lombok:1.18.8'
 }
 ```
 
+### : [AdminClient clientId=adminclient-1] Connection to node -1 could not be established. Broker may not be available.
+
+### [spring多模块依赖时，被依赖模块的配置文件不生效的问题解决](https://blog.csdn.net/u014520745/article/details/82706040)
+
+- 方法一：
+把log模块中的application.yml文件名改成application-log.yml
+
+
+然后在web模块中添加如下配置，其实就是和本身模块引用多个配置文件一样，引用即可：
+```yaml
+spring:
+ profiles:
+    active: log,kobe
+```
+
+- 方法二（推荐方法，模块之间并不用写依赖配置）：   
+
+直接在log模块的resource目录，添加一个config文件夹，
+在里面创建application.yml文件即可：
+
+官网也是这样介绍的： 
+<https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-application-property-files>
+
 ## [Springboot 2.0选择HikariCP作为默认数据库连接池的五大理由](http://blog.didispace.com/Springboot-2-0-HikariCP-default-reason/)

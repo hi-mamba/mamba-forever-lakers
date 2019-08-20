@@ -12,7 +12,7 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface ExampleBinder {
 
-    String NAME = "example-topic";
+    String NAME = "kafkatopic";
 
     @Input(NAME)
     SubscribableChannel input();

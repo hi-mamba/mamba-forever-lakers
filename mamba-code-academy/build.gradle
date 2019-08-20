@@ -1,3 +1,5 @@
+def vJavaLang = '12'
+
 buildscript {
 
     repositories {
@@ -25,6 +27,7 @@ buildscript {
 // 所有模块/项目的通用配置，为所有项目(包括根项目和所有子项目)设置group和version属性
 allprojects {
 
+    //应用插件
     apply plugin: 'idea'
     group 'space.mamba'
     version '1.0-SNAPSHOT'
@@ -49,8 +52,8 @@ subprojects {
     apply plugin: 'com.google.protobuf'
 
     // 指定JDK版本
-    sourceCompatibility = 12
-    targetCompatibility = 12
+    sourceCompatibility = vJavaLang
+    targetCompatibility = vJavaLang
 
     // 指定编码格式, java编译的时候缺省状态下会因为中文字符而失败
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
@@ -58,6 +61,8 @@ subprojects {
         mainClassName = 'space.mamba.ServiceApplication'
     }
 
+    bootJar { enabled = false }
+    jar {enabled = true}
 
     repositories {
 

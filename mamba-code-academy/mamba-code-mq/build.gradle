@@ -1,4 +1,6 @@
 
+archivesBaseName = 'mamba-code-mq'
+
 dependencies {
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-stream-kafka', version: '2.2.0.RELEASE'
 }

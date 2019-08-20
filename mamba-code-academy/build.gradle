@@ -60,7 +60,7 @@ subprojects {
     bootJar {
         mainClassName = 'space.mamba.ServiceApplication'
     }
-
+    // 添加这里解决子模块项目依赖导致编译无法通过
     bootJar { enabled = false }
     jar {enabled = true}
 

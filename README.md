@@ -70,4 +70,52 @@ spring:
 官网也是这样介绍的： 
 <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-application-property-files>
 
+###  [spring boot multi-project dependencies](https://github.com/spring-projects/spring-boot/issues/9242)
+
+> spring boot gradle 多模块,在导入其他子模块编译的时候无法通过，提示不存在此包和这个类
+```groovy
+:library:compileJava UP-TO-DATE
+:library:processResources NO-SOURCE
+:library:classes UP-TO-DATE
+:library:jar SKIPPED
+/Users/yuval/dev/gs-multi-module/complete/application/src/main/java/hello/app/DemoApplication.java:10: error: package hello.service does not exist
+import hello.service.Service;
+                    ^
+/Users/yuval/dev/gs-multi-module/complete/application/src/main/java/hello/app/DemoApplication.java:11: error: package hello.service does not exist
+import hello.service.ServiceConfiguration;
+                    ^
+/Users/yuval/dev/gs-multi-module/complete/application/src/main/java/hello/app/DemoApplication.java:18: error: cannot find symbol
+    private final Service service;
+                  ^
+  symbol:   class Service
+  location: class DemoApplication
+/Users/yuval/dev/gs-multi-module/complete/application/src/main/java/hello/app/DemoApplication.java:21: error: cannot find symbol
+    public DemoApplication(Service service) {
+                           ^
+  symbol:   class Service
+  location: class DemoApplication
+/Users/yuval/dev/gs-multi-module/complete/application/src/main/java/hello/app/DemoApplication.java:14: error: cannot find symbol
+@Import(ServiceConfiguration.class)
+        ^
+  symbol: class ServiceConfiguration
+5 errors
+:application:compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':application:compileJava'.
+> Compilation failed; see the compiler error output for details.
+``` 
+
+- 解决方法
+@mrmeisen in your lib project's build.gradle disable bootJar and re-enable the jar tasks via
+
+```groovy
+bootJar { enabled = false }
+jar {enabled = true}
+```
+可以在 subprojects{} 里面添加
+
+
 ## [Springboot 2.0选择HikariCP作为默认数据库连接池的五大理由](http://blog.didispace.com/Springboot-2-0-HikariCP-default-reason/)

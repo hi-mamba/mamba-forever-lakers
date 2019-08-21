@@ -16,7 +16,7 @@
 执行
 > gradle clean build -x test
 
-不要问我为什么... 就是项目需要重新构建
+不要问我为什么... 就是项目需要重新构建，执行这个如果启动项目出现问题，那么你需 rebuild project
 
 
 ## 启动项目
@@ -117,5 +117,52 @@ jar {enabled = true}
 ```
 可以在 subprojects{} 里面添加
 
+
+### Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+```
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-08-21 16:36:17.368 ERROR 87870 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+
+Process finished with exit code 1
+```
+
+查阅资料，网上大体有三种解决方案：
+
+1、使用exclude= {DataSourceAutoConfiguration.class}排除DataSource的自动配置；
+
+2、检查是否将resources文件夹设置成了Resources Root目录（名字是否有写错）；
+
+3、在pom.xml的build标签中添加resources指定资源目录；
+
+上面的都解决不了我这个项目说的这个问题
+
+- 最后的解决方案：
+
+[springboot项目提示“Failed to determine a suitable driver class”](https://www.jiweichengzhu.com/article/e6cbb2d6aa7648f1b3046ba7e8580803)
+
+IDEA Build 执行下这个就解决了
+> rebuild project
+
+由于我的项目使用gradle 在项目执行   gradle  clean build -x test  启动项目就会有这样的问题
+
+[IDEA 不自动复制资源文件到编译目录 classes 的问题](https://blog.csdn.net/wungmc/article/details/53793177)
 
 ## [Springboot 2.0选择HikariCP作为默认数据库连接池的五大理由](http://blog.didispace.com/Springboot-2-0-HikariCP-default-reason/)

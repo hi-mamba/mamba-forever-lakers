@@ -27,6 +27,7 @@ spring:
     active: kobe
     jmx-enabled: true
 
+
 logging:
   level:
     org:

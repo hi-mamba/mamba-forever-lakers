@@ -1,10 +1,10 @@
 package space.mamba.controller;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import space.mamba.model.UserInfo;
 import space.mamba.service.business.UserInfoService;
 
@@ -19,6 +19,7 @@ import java.util.Random;
  *
  * </pre>
  */
+@Slf4j
 @RestController
 @RequestMapping("/api/user_info")
 public class UserInfoController {
@@ -58,6 +59,12 @@ public class UserInfoController {
         userInfo.setLastLoginIp(1271111L);
         userInfo.setUsername("kobe_" + la);
         return userInfoService.insertSelective(userInfo);
+    }
+
+    @PostMapping("/create")
+    public int insertUserInfo(@RequestBody UserInfo userInfo) {
+        log.info(JSONObject.toJSONString(userInfo));
+        return 1;
     }
 
 }

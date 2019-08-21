@@ -21,8 +21,13 @@ spring:
         max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
 
 
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.23.3.19:3306/learning?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: test
+    password: test
 
 
 registry:
   servers:
-    127.0.0.1:12181,127.0.0.1:22181,127.0.0.1:32181
+    172.23.3.19:2181,172.23.3.19:2182,172.23.3.19:2183

@@ -27,8 +27,8 @@ spring:
     active: kobe
     jmx-enabled: true
   #命名规则下划线式
-  jackson:
-    property-naming-strategy: SNAKE_CASE
+#  jackson:
+#    property-naming-strategy: SNAKE_CASE
 
 logging:
   level:

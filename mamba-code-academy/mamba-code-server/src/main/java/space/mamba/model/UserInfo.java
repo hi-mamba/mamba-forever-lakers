@@ -3,6 +3,7 @@ package space.mamba.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import space.mamba.component.annotion.EnableSnakeToCamel;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
+@EnableSnakeToCamel
 public class UserInfo {
     /**
      * 主键ID

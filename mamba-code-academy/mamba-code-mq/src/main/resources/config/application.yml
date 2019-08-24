@@ -10,8 +10,18 @@ spring:
           auto-create-topics: true
           min-partition-count: 1
       bindings:
+        # 下面这里是配置各种消费的TOPIC 和生产的TOPIC
+        input:
+          desctionation: topic_name
+          content-type: application/json
         output:
-          destination: messages
+          destination: topic_name
           content-type: application/json
           producer:
             partitionCount: 1
+        example-topic-input:
+          content-type: application/json
+          destination: kafkatopic
+        example-topic-output:
+          content-type: application/json
+          destination: kafkatopic

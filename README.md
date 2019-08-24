@@ -165,4 +165,13 @@ IDEA Build 执行下这个就解决了
 
 [IDEA 不自动复制资源文件到编译目录 classes 的问题](https://blog.csdn.net/wungmc/article/details/53793177)
 
+
+### [Spring Cloud Stream如何消费自己生产的消息](http://blog.didispace.com/spring-cloud-starter-finchley-7-1/)
+
+> org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'example-topic' defined in com.didispace.stream.TestTopic: bean definition with this name already exists - Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.didispace.stream.TestTopic; factoryMethodName=input; initMethodName=null; destroyMethodName=null
+
+
+
+
+
 ## [Springboot 2.0选择HikariCP作为默认数据库连接池的五大理由](http://blog.didispace.com/Springboot-2-0-HikariCP-default-reason/)

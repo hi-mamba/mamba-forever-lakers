@@ -17,6 +17,13 @@ jackson 只支持@ResponseBody 以及@RequestBody,
 
 [Spring - 关于Controller类方法里的实体参数解释原理](https://www.jianshu.com/p/59f5e3824520)
 
+- 解决的方案
+[Spring Boot Get请求参数为下划线式](http://www.appblog.cn/2019/06/10/Spring%20Boot%20Get%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E4%B8%BA%E4%B8%8B%E5%88%92%E7%BA%BF%E5%BC%8F/)
+
+[spring mvc 自定义参数绑定，自定义数据返回格式](https://scutuyu.github.io/2018/12/18/spring-mvc-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0%E7%BB%91%E5%AE%9A%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F/)
+
+[目前代码里使用这个方法](https://github.com/lemonzone2010/springmvc-demo/blob/master/src/main/java/com/example/springmvcdemo/controller/camel/SnakeToCamelServletRequestDataBinderFactory.java)
+
 
 ## springboot 中接口驼峰自动转下划线以及跨域代码块
 

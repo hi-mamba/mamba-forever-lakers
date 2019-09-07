@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
  * @date 2019/8/24
  * <pre>
  *      消费者
+ *
+ *      可以通　canal 发MQ ，注意topic的名字
  * </pre>
  */
 @Slf4j

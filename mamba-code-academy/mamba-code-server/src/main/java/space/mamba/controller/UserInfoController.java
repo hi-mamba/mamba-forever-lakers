@@ -61,7 +61,9 @@ public class UserInfoController {
         userInfo.setStatus(Byte.valueOf("1"));
         userInfo.setLastLoginIp(1271111L);
         userInfo.setUsername("kobe_" + la);
-        return userInfoService.insertSelective(userInfo);
+        int result = userInfoService.insertSelective(userInfo);
+        log.info(JSONObject.toJSONString(userInfo));
+        return result;
     }
 
     /**

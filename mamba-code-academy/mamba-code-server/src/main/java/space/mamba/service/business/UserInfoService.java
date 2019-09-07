@@ -1,6 +1,5 @@
 package space.mamba.service.business;
 
-import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +37,7 @@ public class UserInfoService {
 
     public int insertSelective(UserInfo record) {
         log.info("## insert ...");
-        kafkaProduceService.sendMessage(JSONObject.toJSONString(record));
+        //kafkaProduceService.sendMessage(JSONObject.toJSONString(record));
         return userInfoMapper.insertSelective(record);
     }
 

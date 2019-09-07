@@ -1,0 +1,27 @@
+
+
+# 定义 stages
+
+stages:
+  - build
+  - unit-test
+
+# 定义  unit-test 的一个任务
+unit-test:
+  # 这个任务在stage为unit-test时执行
+  stage: unit-test
+  # tags表示他需要执行的gitlab-runner
+  tags:
+    - mamba-ci
+  # script代表需要执行的脚本，该例子中执行的脚本包括三步(输出忽略)
+  #                       1、运行gradle测试。2、进行单元测试覆盖情况检查。3、运行sonarqube进行代码质量检查
+  script:
+    - echo "I am job1"
+    - echo "I am in test stage"
+    - gradle test
+    - gradle jacocoTestReport
+    - gradle sonarqube
+  #  when定义何时执行任务，可以是on_success，on_failure，always(每次代码更新都触发)或者manual(手动触发)。
+  when: always
+
+

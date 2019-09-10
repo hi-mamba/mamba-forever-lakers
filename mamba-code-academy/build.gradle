@@ -29,6 +29,7 @@ allprojects {
 
     //应用插件
     apply plugin: 'idea'
+    apply plugin: 'jacoco'
     group 'space.mamba'
     version '1.0-SNAPSHOT'
 
@@ -63,6 +64,16 @@ subprojects {
     // 添加这里解决子模块项目依赖导致编译无法通过
     bootJar { enabled = false }
     jar {enabled = true}
+
+    // 执行的时候注意项目路径，最外一层不是gradle
+    jacocoTestReport {
+        reports {
+            xml.enabled false
+            html.enabled true
+        }
+    }
+
+    check.dependsOn jacocoTestReport
 
     repositories {
 
@@ -123,5 +134,10 @@ subprojects {
 
     task prod {
         bootRun { systemProperty "spring.profiles.active", "prod" }
+    }
+
+
+    test {
+        useJUnit()
     }
 }

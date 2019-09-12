@@ -170,6 +170,23 @@ IDEA Build 执行下这个就解决了
 
 > org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'example-topic' defined in com.didispace.stream.TestTopic: bean definition with this name already exists - Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.didispace.stream.TestTopic; factoryMethodName=input; initMethodName=null; destroyMethodName=null
 
+### idea 错误 Two modules in a project cannot share the same content root
+
+直接把项目 .idea 和.gradle 删除，重新导入项目，然后导入模块.
+
+## 测试用例 
+
+参考 <https://www.cnblogs.com/AdaiCoffee/p/10700097.html>
+
+### java.lang.NoClassDefFoundError: org/mockito/MockitoAnnotations$Mock
+
+> 把  powermock-api-mockito 修改成 'powermock-api-mockito2 
+> https://github.com/powermock/powermock/issues/678
+>
+>https://github.com/powermock/powermock/issues/684
+>
+> 依赖的mockito已经是2.x了，然后powermock虽然对应有一个api，但是并不能真正的支持，[springboot2.x 单元测试 mockito powermock 兼容性问题解决]
+> https://webcache.googleusercontent.com/search?q=cache:yZStUqwRlgwJ:https://blog.csdn.net/u013076044/article/details/99109487+&cd=2&hl=en&ct=clnk&gl=hk
 
 
 ## [Springboot 2.0选择HikariCP作为默认数据库连接池的五大理由](http://blog.didispace.com/Springboot-2-0-HikariCP-default-reason/)

@@ -2,9 +2,13 @@
 
 　湖人总冠军🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆🏆
 
+## 项目打包
+
+启动项目，且指定环境
+> gradle clean source:jar package -P prod
 
 
-## 注意
+## 注意事项
 
 如果项目启动读取 redis 的配置老是 localhost:6379 ，但是我们确实是配置了集群。
 那么只能说明是IDEA 工程有问题!!!
@@ -12,48 +16,49 @@
 - 解决办法
 >  重新导入项目，或者提交代码之后，重新clone 项目。之前尝试过 gradle build 不起作用.
 
-> 如果还是有问题，删除项目的 .gradle 和 .idea 文件夹，重新启动项目
+> 如果还是有问题，删除项目的 .gradle 和 .idea 文件夹，重新启动idea 之后选择次项目。
 
-## 如果这个项目出现问题了。
+#### 如果这个项目出现问题了。
 执行
 > gradle clean build -x test
 
 不要问我为什么... 就是项目需要重新构建，执行这个如果启动项目出现问题，那么你需 rebuild project
 
-## 启动项目
-> gradle clean source:jar package -P prod
 
 ## 遇到异常
 
-### SLF4J: Class path contains multiple SLF4J bindings.
-
+#### SLF4J: Class path contains multiple SLF4J bindings.
 JAR 冲突,因为我项目添加zookeeper，需要移除冲突JAR
-
 <https://stackoverflow.com/questions/18952479/how-to-exclude-multiple-slf4j-bindings-to-log4j>
 
-### Failed to load class "org.slf4j.impl.StaticLoggerBinder
+#### Failed to load class "org.slf4j.impl.StaticLoggerBinder
 
-
-### Gradle build fails on Lombok annotated classes
+#### Gradle build fails on Lombok annotated classes
 IDEA 2019.2 GRADLE 5.X LOMBOK 1.18.8  JDK12
 <https://stackoverflow.com/questions/35236104/gradle-build-fails-on-lombok-annotated-classes>
 
 ```groovy
 dependencies{
-
 compileOnly 'org.projectlombok:lombok:1.18.8'
 annotationProcessor 'org.projectlombok:lombok:1.18.8'
 
 }
 ```
+如果项目这在测试类里面还是有问题,那么你需要添加插件
+```groovy
+ classpath "io.freefair.gradle:lombok-plugin:4.1.0"
+ apply plugin: "io.freefair.lombok"
+```
+参考     
+ [io.freefair.lombok](https://plugins.gradle.org/plugin/io.freefair.lombok)  
+ [Applying Lombok plugin to Gradle causes “Could not find any public constructor” error](https://stackoverflow.com/questions/56327071/applying-lombok-plugin-to-gradle-causes-could-not-find-any-public-constructor)
 
-### : [AdminClient clientId=adminclient-1] Connection to node -1 could not be established. Broker may not be available.
+#### : [AdminClient clientId=adminclient-1] Connection to node -1 could not be established. Broker may not be available.
 
-### [spring多模块依赖时，被依赖模块的配置文件不生效的问题解决](https://blog.csdn.net/u014520745/article/details/82706040)
+#### [spring多模块依赖时，被依赖模块的配置文件不生效的问题解决](https://blog.csdn.net/u014520745/article/details/82706040)
 
 - 方法一：
 把log模块中的application.yml文件名改成application-log.yml
-
 
 然后在web模块中添加如下配置，其实就是和本身模块引用多个配置文件一样，引用即可：
 ```yaml
@@ -70,7 +75,7 @@ spring:
 官网也是这样介绍的： 
 <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-application-property-files>
 
-###  [spring boot multi-project dependencies](https://github.com/spring-projects/spring-boot/issues/9242)
+####  [spring boot multi-project dependencies](https://github.com/spring-projects/spring-boot/issues/9242)
 
 > spring boot gradle 多模块,在导入其他子模块编译的时候无法通过，提示不存在此包和这个类
 ```groovy
@@ -108,7 +113,7 @@ Execution failed for task ':application:compileJava'.
 > Compilation failed; see the compiler error output for details.
 ``` 
 
-- 解决方法
+- 解决方法  
 @mrmeisen in your lib project's build.gradle disable bootJar and re-enable the jar tasks via
 
 ```groovy
@@ -117,8 +122,7 @@ jar {enabled = true}
 ```
 可以在 subprojects{} 里面添加
 
-
-### Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+#### Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
 ```
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2019-08-21 16:36:17.368 ERROR 87870 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
@@ -166,20 +170,16 @@ IDEA Build 执行下这个就解决了
 [IDEA 不自动复制资源文件到编译目录 classes 的问题](https://blog.csdn.net/wungmc/article/details/53793177)
 
 
-### [Spring Cloud Stream如何消费自己生产的消息](http://blog.didispace.com/spring-cloud-starter-finchley-7-1/)
+#### [Spring Cloud Stream如何消费自己生产的消息](http://blog.didispace.com/spring-cloud-starter-finchley-7-1/)
 
 > org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'example-topic' defined in com.didispace.stream.TestTopic: bean definition with this name already exists - Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.didispace.stream.TestTopic; factoryMethodName=input; initMethodName=null; destroyMethodName=null
 
-### idea 错误 Two modules in a project cannot share the same content root
+#### idea 错误 Two modules in a project cannot share the same content root
 
 直接把项目 .idea 和.gradle 删除，重新导入项目，然后导入模块.
 
-## 测试用例 
-> CREATE DATABASE IF NOT EXISTS unit_test default charset utf8 COLLATE utf8_general_ci; 
->
-参考 <https://www.cnblogs.com/AdaiCoffee/p/10700097.html>
 
-### java.lang.NoClassDefFoundError: org/mockito/MockitoAnnotations$Mock
+#### java.lang.NoClassDefFoundError: org/mockito/MockitoAnnotations$Mock
 
 > 把  powermock-api-mockito 修改成 'powermock-api-mockito2 
 > https://github.com/powermock/powermock/issues/678
@@ -189,12 +189,36 @@ IDEA Build 执行下这个就解决了
 > 依赖的mockito已经是2.x了，然后powermock虽然对应有一个api，但是并不能真正的支持，[springboot2.x 单元测试 mockito powermock 兼容性问题解决]
 > https://webcache.googleusercontent.com/search?q=cache:yZStUqwRlgwJ:https://blog.csdn.net/u013076044/article/details/99109487+&cd=2&hl=en&ct=clnk&gl=hk
 
-## flyway 问题
+#### flyway 问题
 // spring boot 到2.2.0 版本才支持 flyway6.0 ...
 // testCompile group: 'org.flywaydb', name: 'flyway-core', version: '6.0.2'
 // 为什么 build.gradle 这里设置成 testCompile?
 // 因为在spring-boot-autoconfigure项目下有一个FlywayAutoConfiguration类，如果不设置testCompile会去加载 migration，导致项目启动不起来
 testCompile group: 'org.flywaydb', name: 'flyway-core', version: '5.2.4'
+
+
+
+## 技能包
+
+- ✅ Kafka生产消费实现
+- 分库分表的实现
+
+
+
+
+## 如何执行项目测试用例 
+
+前提条件
+1. 必须安装有docker,然后启动docker.
+2. 然后在项目 mamba-code-academy 执行 命令 $ docker-compose up 启动.
+3. 就可以去执行测试用例了
+
+测试用例使用项目技能包  
+1. [Powermock2.0.0 详细 总结](https://www.cnblogs.com/AdaiCoffee/p/10700097.html)
+2. [Flyway Programmatic Configuration (Java)](https://flywaydb.org/documentation/api/)
+3. [Bitnami MySQL Docker Image](https://github.com/bitnami/bitnami-docker-mysql)
+
+
 
 
 ## [Springboot 2.0选择HikariCP作为默认数据库连接池的五大理由](http://blog.didispace.com/Springboot-2-0-HikariCP-default-reason/)

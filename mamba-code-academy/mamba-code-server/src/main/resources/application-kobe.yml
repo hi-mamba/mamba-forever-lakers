@@ -19,12 +19,12 @@ spring:
         max-idle: 10 # 连接池中的最大空闲连接
         min-idle: 5 # 连接池中的最小空闲连接
         max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.23.3.19:3306/learning?useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: test
-    password: test
 
+  #datasource:
+  #  driver-class-name: com.mysql.cj.jdbc.Driver
+  #  url: jdbc:mysql://172.23.3.19:3306/learning?useUnicode=true&characterEncoding=utf8&useSSL=false
+  #  username: test
+  #  password: test
 
 
 registry:

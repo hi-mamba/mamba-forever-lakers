@@ -24,7 +24,7 @@ spring:
   application:
     name: mamba-service
   profiles:
-    active: kobe
+    active: kobe,sharding
     jmx-enabled: true
   #命名规则下划线式
 #  jackson:

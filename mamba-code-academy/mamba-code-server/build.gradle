@@ -14,4 +14,16 @@ dependencies {
     compile(group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.14') {
         exclude group: 'org.slf4j', module: 'slf4j-log4j12'
     }
+    //分库分表
+    compile(group: 'org.apache.shardingsphere',name:'sharding-jdbc-spring-boot-starter',version: '4.0.0-RC2')
+    compile group: 'com.alibaba', name: 'druid-spring-boot-starter', version: '1.1.20'
+
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.11'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.2.11'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.2.11'
+    compile group: 'javax.activation', name: 'activation', version: '1.1.1'
+
+
+
+
 }

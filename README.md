@@ -175,7 +175,8 @@ IDEA Build 执行下这个就解决了
 直接把项目 .idea 和.gradle 删除，重新导入项目，然后导入模块.
 
 ## 测试用例 
-
+> CREATE DATABASE IF NOT EXISTS unit_test default charset utf8 COLLATE utf8_general_ci; 
+>
 参考 <https://www.cnblogs.com/AdaiCoffee/p/10700097.html>
 
 ### java.lang.NoClassDefFoundError: org/mockito/MockitoAnnotations$Mock

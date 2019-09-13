@@ -2,20 +2,12 @@ package space.mamba;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
-import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.modules.junit4.PowerMockRunnerDelegate;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import space.mamba.service.business.UserInfoService;
 
 /**
  * @author pankui
@@ -25,7 +17,7 @@ import space.mamba.service.business.UserInfoService;
  * </pre>
  */
 
-@ActiveProfiles("kobe")
+@ActiveProfiles({"unittest"})
 @Slf4j
 //使用powermock自己的Runner
 @RunWith(PowerMockRunner.class)

@@ -106,3 +106,5 @@ target/
 catalina.base_IS_UNDEFINED
 
 out/
+work/
+lombok*

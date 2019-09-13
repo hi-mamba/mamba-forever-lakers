@@ -14,8 +14,8 @@ import space.mamba.service.business.UserInfoService;
  */
 public class MockTest extends ServiceApplicationTest {
 
-    @Bean
-    public UserInfoService userInfoService() {
-        return PowerMockito.mock(UserInfoService.class);
-    }
+   // @Bean
+   // public UserInfoService userInfoService() {
+   //     return PowerMockito.mock(UserInfoService.class);
+   // }
 }

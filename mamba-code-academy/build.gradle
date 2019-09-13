@@ -22,6 +22,8 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
+        // 解决 src/test 下 lombok不起作用的问题
+        classpath "io.freefair.gradle:lombok-plugin:4.1.0"
     }
 }
 // 所有模块/项目的通用配置，为所有项目(包括根项目和所有子项目)设置group和version属性
@@ -31,6 +33,7 @@ allprojects {
     apply plugin: 'idea'
     apply plugin: 'jacoco'
     apply plugin: 'maven'
+    apply plugin: "io.freefair.lombok"
     group 'space.mamba'
     version '1.0-SNAPSHOT'
 
@@ -105,13 +108,18 @@ subprojects {
         testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.2'
         testCompile group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.2'
         compile group: 'org.mockito', name: 'mockito-core', version: '2.23.4'
-        compile group: 'org.flywaydb', name: 'flyway-core', version: '6.0.2'
+        // spring boot 到2.2.0 版本才支持 flyway6.0 ...
+        // testCompile group: 'org.flywaydb', name: 'flyway-core', version: '6.0.2'
+        // 为什么这里设置成 testCompile?
+        // 因为在spring-boot-autoconfigure项目下有一个FlywayAutoConfiguration类，如果不设置testCompile会去执行migration
+        testCompile group: 'org.flywaydb', name: 'flyway-core', version: '5.2.4'
 
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
         compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
 
-        //https://projectlombok.org/setup/gradle
-        compile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
+        //https://projectlombok.org/setup/gradle  且不用使用 Lombok 插件
+        compileOnly 'org.projectlombok:lombok:1.18.10'
+        testCompileOnly 'org.projectlombok:lombok:1.18.10'
         annotationProcessor 'org.projectlombok:lombok:1.18.10'
         compile group: 'com.google.guava', name: 'guava', version: '27.1-jre'
 

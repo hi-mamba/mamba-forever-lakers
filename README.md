@@ -23,7 +23,6 @@
 ## 启动项目
 > gradle clean source:jar package -P prod
 
-
 ## 遇到异常
 
 ### SLF4J: Class path contains multiple SLF4J bindings.

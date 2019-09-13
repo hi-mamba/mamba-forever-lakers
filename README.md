@@ -12,6 +12,8 @@
 - 解决办法
 >  重新导入项目，或者提交代码之后，重新clone 项目。之前尝试过 gradle build 不起作用.
 
+> 如果还是有问题，删除项目的 .gradle 和 .idea 文件夹，重新启动项目
+
 ## 如果这个项目出现问题了。
 执行
 > gradle clean build -x test
@@ -188,6 +190,13 @@ IDEA Build 执行下这个就解决了
 >
 > 依赖的mockito已经是2.x了，然后powermock虽然对应有一个api，但是并不能真正的支持，[springboot2.x 单元测试 mockito powermock 兼容性问题解决]
 > https://webcache.googleusercontent.com/search?q=cache:yZStUqwRlgwJ:https://blog.csdn.net/u013076044/article/details/99109487+&cd=2&hl=en&ct=clnk&gl=hk
+
+## flyway 问题
+// spring boot 到2.2.0 版本才支持 flyway6.0 ...
+// testCompile group: 'org.flywaydb', name: 'flyway-core', version: '6.0.2'
+// 为什么 build.gradle 这里设置成 testCompile?
+// 因为在spring-boot-autoconfigure项目下有一个FlywayAutoConfiguration类，如果不设置testCompile会去加载 migration，导致项目启动不起来
+testCompile group: 'org.flywaydb', name: 'flyway-core', version: '5.2.4'
 
 
 ## [Springboot 2.0选择HikariCP作为默认数据库连接池的五大理由](http://blog.didispace.com/Springboot-2-0-HikariCP-default-reason/)

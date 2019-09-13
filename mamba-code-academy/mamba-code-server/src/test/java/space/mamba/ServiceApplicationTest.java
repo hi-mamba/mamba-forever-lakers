@@ -14,6 +14,9 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @date 2019-07-28
  * <pre>
  *      https://www.cnblogs.com/AdaiCoffee/p/10700097.html
+ *
+ *      如何执行测试用例？
+ *      1、由于使用的mysql 是docker 的镜像，因此需要本地启动docker.
  * </pre>
  */
 

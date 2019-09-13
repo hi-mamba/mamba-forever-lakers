@@ -32,12 +32,12 @@ spring:
     cluster:
       # 各 Redis 节点信息
       nodes:
-        - 172.23.3.19:7001 # 127.0.0.1:7001
-        - 172.23.3.19:7002 # 127.0.0.1:7002
-        - 172.23.3.19:7003 # 127.0.0.1:7003
-        - 172.23.3.19:7004 # 127.0.0.1:7004
-        - 172.23.3.19:7005 # 127.0.0.1:7005
-        - 172.23.3.19:7006 # 127.0.0.1:7006
+        - 127.0.0.1:7001
+        - 127.0.0.1:7002
+        - 127.0.0.1:7003
+        - 127.0.0.1:7004
+        - 127.0.0.1:7005
+        - 127.0.0.1:7006
       max-redirects: 3 # 获取失败 最大重定向次数
     lettuce:
       pool:
@@ -47,9 +47,9 @@ spring:
         max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.23.3.19:3306/unit_test?useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: test
-    password: test
+    url: jdbc:mysql://127.0.0.1:13306/learning_test?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password:
 
     registry:
       servers:

@@ -20,7 +20,6 @@
 
 不要问我为什么... 就是项目需要重新构建，执行这个如果启动项目出现问题，那么你需 rebuild project
 
-
 ## 启动项目
 > gradle clean source:jar package -P prod
 

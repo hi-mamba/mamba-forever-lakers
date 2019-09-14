@@ -80,23 +80,23 @@ public interface UserInfoMapper {
      */
     int batchInsert(@Param("list") List<UserInfo> list);
 
+    /**
+     * Select by id record.
+     *
+     * @param id the user info
+     * @return the list
+     */
+    UserInfo findAllById(Long id);
 
     /**
      * Select by all list.
+     *
+     * 由于根据 user_id 进行了分表，因此查询必须包含有 user_id 的值。
      *
      * @param userInfo the user info
      * @return the list
      */
     List<UserInfo> selectByAll(UserInfo userInfo);
-
-
-    /**
-     * Find all by id user info.
-     *
-     * @param id the id
-     * @return the user info
-     */
-    UserInfo findAllById(@Param("id") Long id);
 
 
 }

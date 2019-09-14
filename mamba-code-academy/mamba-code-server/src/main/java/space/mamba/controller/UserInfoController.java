@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import space.mamba.component.annotion.EnableSnakeToCamel;
+import space.mamba.config.database.sharding.SnowflakeShardingKeyGeneratorUtil;
 import space.mamba.model.UserInfo;
 import space.mamba.service.business.UserInfoService;
 
@@ -54,8 +55,10 @@ public class UserInfoController {
     public int randomCreateUserInfo() {
         long la = System.currentTimeMillis();
         UserInfo userInfo = new UserInfo();
+        userInfo.setId(SnowflakeShardingKeyGeneratorUtil.generateKey());
         userInfo.setRegTime(LocalDateTime.now());
         userInfo.setMobile(la + "");
+        userInfo.setUserId(SnowflakeShardingKeyGeneratorUtil.generateKey());
         userInfo.setEmail(la + new Random(10).nextInt() + "@lakers.com");
         userInfo.setPassword("123");
         userInfo.setStatus(Byte.valueOf("1"));

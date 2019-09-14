@@ -197,6 +197,30 @@ IDEA Build 执行下这个就解决了
 testCompile group: 'org.flywaydb', name: 'flyway-core', version: '5.2.4'
 
 
+#### [解决创建数据源(DataSource) Bean 冲突问题](http://www.gxitsky.com/2019/06/18/distributed-micro-app-8-sharding-jdbc-imp/)
+
+druid-spring-boot-starter 默认开启了自动配置，在 application.properties 文件中配置多数据源的话，
+因无法定义数据源名称而采用默认的，自动配置在创建多个数据源 Bean 时会存在冲突。
+
+- 解决方案一：使用纯 druid 包 替换 druid-spring-boot-starter 包
+```xml
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>druid</artifactId>
+    <version>1.1.12</version>
+</dependency>
+```
+- 解决方案二：使用 druid-spring-boot-starter 包，但关闭自动配置
+```xml
+@SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
+public class ShardingJdbcApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ShardingJdbcApplication.class, args);
+    }
+}
+```
+实际数据源数据好后，Sharding-JDBC 就支持了读写分离。
 
 ## 技能包
 

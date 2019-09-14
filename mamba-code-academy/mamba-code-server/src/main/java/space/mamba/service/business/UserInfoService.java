@@ -1,8 +1,10 @@
 package space.mamba.service.business;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import space.mamba.config.database.sharding.SnowflakeShardingKeyGeneratorUtil;
 import space.mamba.dao.UserInfoMapper;
 import space.mamba.model.UserInfo;
 import space.mamba.mq.kafka.produce.KafkaProduceService;
@@ -12,6 +14,9 @@ import java.util.List;
 
 /**
  * @author pankui
+ *
+ * 由于采用了分表操作，原来mysql的AUTO_INCREMENT这个就不能使用了。这里就是看看shardingjdbc的id生成规则。
+ *
  */
 @Slf4j
 @Service
@@ -32,11 +37,13 @@ public class UserInfoService {
     }
 
     public int insert(UserInfo record) {
+        record.setId(SnowflakeShardingKeyGeneratorUtil.generateKey());
         return userInfoMapper.insert(record);
     }
 
     public int insertSelective(UserInfo record) {
-        log.info("## insert ...");
+        record.setId(SnowflakeShardingKeyGeneratorUtil.generateKey());
+        log.info("## insert ...{}", JSONObject.toJSONString(record));
         //kafkaProduceService.sendMessage(JSONObject.toJSONString(record));
         return userInfoMapper.insertSelective(record);
     }

@@ -22,6 +22,10 @@ public class UserInfo {
     private Long id;
 
     /**
+     * user id,分库分表之后，原来表的主键ID就变成了这个ID？
+     * */
+    private Long userId;
+    /**
      * 用户名
      */
     private String username;

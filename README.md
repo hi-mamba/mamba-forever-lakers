@@ -225,7 +225,8 @@ public class ShardingJdbcApplication {
 ## 技能包
 
 - ✅ Kafka生产消费实现
-- 分库分表的实现
+
+- [分库分表的实现](https://github.com/hi-mamba/middleware-learning/blob/master/032%E3%80%81ShardingSphere%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6%E3%80%91/03%E3%80%81%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/0005%E3%80%81%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8.md)
 
 
 

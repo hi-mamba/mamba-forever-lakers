@@ -1,0 +1,21 @@
+/** 只要触发该规则时，就会在控制空 输出 helloworld */
+package mamba.drools.hello.world
+import kobe.mamba.drools.helloworld.Message;
+
+rule "Hello World"
+    when
+        m : Message( status == Message.HELLO, myMessage : msg )
+    then
+    	System.out.println ( "执行规则: "+drools.getRule().getName());
+        System.out.println( "打印msg:"+myMessage );
+        m.setMsg( "Goodbye cruel world" );
+        m.setStatus( Message.GOODBYE );
+        update( m );
+end
+rule "GoodBye"
+    when
+        Message( status == Message.GOODBYE, myMessage : msg )
+    then
+    	System.out.println ( "执行规则: "+drools.getRule().getName());
+        System.out.println( "打印msg:"+myMessage );
+end

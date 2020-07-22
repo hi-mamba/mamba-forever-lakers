@@ -1,4 +1,4 @@
-package kobe.mamba.drools;
+package kobe.mamba.java.drools;
 
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;

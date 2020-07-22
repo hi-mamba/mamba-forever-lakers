@@ -1,6 +1,6 @@
 /** 只要触发该规则时，就会在控制空 输出 helloworld */
 package mamba.drools.hello.world
-import kobe.mamba.drools.helloworld.Message;
+import kobe.mamba.java.drools.helloworld.Message;
 
 rule "Hello World"
     when

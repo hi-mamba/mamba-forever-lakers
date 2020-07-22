@@ -1,4 +1,4 @@
-package kobe.mamba.drools;
+package kobe.mamba.java.drools;
 
 import org.drools.core.impl.InternalKnowledgeBase;
 import org.drools.core.impl.KnowledgeBaseFactory;

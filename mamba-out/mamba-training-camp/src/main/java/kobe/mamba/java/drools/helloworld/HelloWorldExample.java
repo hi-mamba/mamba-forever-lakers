@@ -1,4 +1,4 @@
-package kobe.mamba.drools.helloworld;
+package kobe.mamba.java.drools.helloworld;
 
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;

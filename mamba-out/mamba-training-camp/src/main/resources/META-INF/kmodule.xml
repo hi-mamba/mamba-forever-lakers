@@ -3,7 +3,7 @@
     <kbase name="hello" packages="mamba.drools.hello.world">
         <ksession name="ksession-rules"/>
     </kbase>
-    <kbase name="dtables" packages="dtables">
+    <kbase name="dtables" packages="plausibcheck.adress">
         <ksession name="ksession-dtables"/>
     </kbase>
     <kbase name="process" packages="process">

@@ -1,4 +1,4 @@
-package kobe.mamba.drools.helloworld;
+package kobe.mamba.java.drools.helloworld;
 
 /**
  * @author mamba

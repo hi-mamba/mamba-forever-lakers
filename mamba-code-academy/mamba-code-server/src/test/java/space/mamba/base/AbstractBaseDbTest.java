@@ -53,7 +53,7 @@ public class AbstractBaseDbTest extends MockTest {
         //设置存放flyway metadata数据的表名，默认"schema_version"，可不写
         //flyway.setTable("schema_version");
         try {
-            log.info("###开始执行");
+          //  log.info("###开始执行");
             // 删除当前 schema 下所有表
             flyway.clean();
             //flyway.setValidateOnMigrate(true);

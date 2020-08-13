@@ -1,4 +1,4 @@
-def vJavaLang = '12'
+def vJavaLang = '8'
 
 buildscript {
 
@@ -21,9 +21,9 @@ buildscript {
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
+       // classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
         // 解决 src/test 下 lombok不起作用的问题
-        classpath "io.freefair.gradle:lombok-plugin:4.1.0"
+       // classpath "io.freefair.gradle:lombok-plugin:4.1.0"
     }
 }
 // 所有模块/项目的通用配置，为所有项目(包括根项目和所有子项目)设置group和version属性
@@ -33,7 +33,7 @@ allprojects {
     apply plugin: 'idea'
     apply plugin: 'jacoco'
     apply plugin: 'maven'
-    apply plugin: "io.freefair.lombok"
+    //apply plugin: "io.freefair.lombok"
     group 'space.mamba'
     version '1.0-SNAPSHOT'
 
@@ -54,7 +54,7 @@ subprojects {
     // 所有子项目应用Java插件
     apply plugin: 'java'
     apply plugin: "org.springframework.boot"
-    apply plugin: 'com.google.protobuf'
+//    apply plugin: 'com.google.protobuf'
 
     // 指定JDK版本
     sourceCompatibility = vJavaLang

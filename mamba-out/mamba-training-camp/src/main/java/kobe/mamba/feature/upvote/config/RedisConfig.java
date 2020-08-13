@@ -1,4 +1,4 @@
-package kobe.mamba.feature.upvote;
+package kobe.mamba.feature.upvote.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

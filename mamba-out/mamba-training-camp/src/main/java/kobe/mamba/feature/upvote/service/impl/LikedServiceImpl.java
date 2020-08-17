@@ -27,41 +27,46 @@ import java.util.List;
 @Slf4j
 public class LikedServiceImpl implements LikedService {
 
-    @Resource
-    UserLikeRepository likeRepository;
+    //@Resource
+    //UserLikeRepository likeRepository;
 
     @Resource
     RedisService redisService;
 
-    @Resource
-    UserService userService;
+  //  @Resource
+  //  UserService userService;
 
     @Override
     @Resource
     @Transactional
     public UserLike save(UserLike userLike) {
-        return likeRepository.save(userLike);
+      // return likeRepository.save(userLike);
+        return null;
     }
 
     @Override
     @Transactional
     public List<UserLike> saveAll(List<UserLike> list) {
-        return likeRepository.saveAll(list);
+       // return likeRepository.saveAll(list);
+        return null;
     }
 
     @Override
     public Page<UserLike> getLikedListByLikedUserId(String likedUserId, Pageable pageable) {
-        return likeRepository.findByLikedUserIdAndStatus(likedUserId, LikedStatusEnum.LIKE.getCode(), pageable);
+//        return likeRepository.findByLikedUserIdAndStatus(likedUserId, LikedStatusEnum.LIKE.getCode(), pageable);
+        return null;
     }
 
     @Override
     public Page<UserLike> getLikedListByLikedPostId(String likedPostId, Pageable pageable) {
-        return likeRepository.findByLikedPostIdAndStatus(likedPostId, LikedStatusEnum.LIKE.getCode(), pageable);
+//        return likeRepository.findByLikedPostIdAndStatus(likedPostId, LikedStatusEnum.LIKE.getCode(), pageable);
+        return null;
     }
 
     @Override
     public UserLike getByLikedUserIdAndLikedPostId(String likedUserId, String likedPostId) {
-        return likeRepository.findByLikedUserIdAndLikedPostId(likedUserId, likedPostId);
+//        return likeRepository.findByLikedUserIdAndLikedPostId(likedUserId, likedPostId);
+        return null;
     }
 
     @Override
@@ -84,17 +89,17 @@ public class LikedServiceImpl implements LikedService {
     @Override
     @Transactional
     public void transLikedCountFromRedis2DB() {
-        List<LikedCountDTO> list = redisService.getLikedCountFromRedis();
-        for (LikedCountDTO dto : list) {
-            UserInfo user = userService.findById(dto.getId());
-            //点赞数量属于无关紧要的操作，出错无需抛异常
-            if (user != null){
-                Integer likeNum = user.getLikeNum() + dto.getCount();
-                user.setLikeNum(likeNum);
-                //更新点赞数量
-                userService.updateInfo(user);
-            }
-        }
+     //   List<LikedCountDTO> list = redisService.getLikedCountFromRedis();
+     //   for (LikedCountDTO dto : list) {
+     //       UserInfo user = userService.findById(dto.getId());
+     //       //点赞数量属于无关紧要的操作，出错无需抛异常
+     //       if (user != null){
+     //           Integer likeNum = user.getLikeNum() + dto.getCount();
+     //           user.setLikeNum(likeNum);
+     //           //更新点赞数量
+     //           userService.updateInfo(user);
+     //       }
+     //   }
     }
 }
 

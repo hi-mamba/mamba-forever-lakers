@@ -53,6 +53,6 @@ public interface RedisService {
      * 获取Redis中存储的所有点赞数量
      * @return
      */
-    List<LikedCountDTO> getLikedCountFromRedis();
+    List<Object> getLikedCountFromRedis(); // LikedCountDTO
 
 }

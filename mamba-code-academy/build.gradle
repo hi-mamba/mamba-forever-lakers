@@ -16,7 +16,7 @@ buildscript {
     }
 
     ext {
-        springBootVersion = "2.1.6.RELEASE"
+        springBootVersion = "2.3.5.RELEASE"
     }
 
     dependencies {
@@ -53,6 +53,7 @@ allprojects {
 subprojects {
     // 所有子项目应用Java插件
     apply plugin: 'java'
+    apply plugin: 'maven'
     apply plugin: "org.springframework.boot"
 //    apply plugin: 'com.google.protobuf'
 
@@ -93,7 +94,7 @@ subprojects {
     }
 
     ext {//依赖版本
-        springBootVersion = "2.1.6.RELEASE"
+        springBootVersion = "2.3.5.RELEASE"
         mysqlConnectorVersion = "8.0.17"
         mybatisSpringBootVersion = "2.1.0"
         fastjsonVersion = "1.2.54"
@@ -155,4 +156,16 @@ subprojects {
     test {
         useJUnit()
     }
+
+    install {
+        repositories {
+            mavenInstaller {
+                pom.version = '0.0.1-maven-SNAPSHOT'
+                pom.groupId = 'space.mama'
+                pom.artifactId = 'mamba-code-academy'
+            }
+        }
+    }
 }
+
+

@@ -2,6 +2,7 @@ package space.mamba.qr.controller;
 
 import com.google.zxing.WriterException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import space.mamba.qr.util.QRBarCodeUtil;
 
@@ -21,7 +22,8 @@ import java.io.InputStream;
  * </pre>
  */
 
-@RestController("/qrcode")
+@RestController
+@RequestMapping("/qrcode")
 public class QRCodeController {
     /**
      * 获取二维码
@@ -41,10 +43,4 @@ public class QRCodeController {
         BufferedImage image = ImageIO.read(inputStream);
         ImageIO.write(image, "png", response.getOutputStream());
     }
-
-    @GetMapping("/hi")
-    public String hi() {
-        return "hi";
-    }
-
 }

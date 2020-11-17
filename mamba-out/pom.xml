@@ -26,6 +26,8 @@
         <google.zxing.version>3.4.1</google.zxing.version>
         <drools.version>7.46.0.Final</drools.version>
         <lombok.version>1.18.16</lombok.version>
+        <guava.version>30.0-jre</guava.version>
+        <mysql.version>8.0.22</mysql.version>
     </properties>
 
     <!-- 项目第三方JAR 版本统一管理 -->
@@ -122,6 +124,19 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>

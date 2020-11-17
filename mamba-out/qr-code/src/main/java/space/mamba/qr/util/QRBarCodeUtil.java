@@ -19,7 +19,6 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
@@ -34,17 +33,6 @@ import java.util.Hashtable;
  */
 public class QRBarCodeUtil {
 
-    /**
-     * CODE_WIDTH：二维码宽度，单位像素
-     * CODE_HEIGHT：二维码高度，单位像素
-     * FRONT_COLOR：二维码前景色，0x000000 表示黑色
-     * BACKGROUND_COLOR：二维码背景色，0xFFFFFF 表示白色
-     * 演示用 16 进制表示，和前端页面 CSS 的取色是一样的，注意前后景颜色应该对比明显，如常见的黑白
-     */
-    private static final int CODE_WIDTH = 400;
-    private static final int CODE_HEIGHT = 400;
-    private static final int FRONT_COLOR = 0x000000;
-    private static final int BACKGROUND_COLOR = 0xFFFFFF;
 
     /**
      * 根据本地二维码图片————————解析二维码内容

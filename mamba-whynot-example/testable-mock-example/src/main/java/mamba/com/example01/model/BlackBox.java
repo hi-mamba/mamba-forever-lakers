@@ -8,6 +8,10 @@ public class BlackBox {
 
     private String data;
 
+    public BlackBox() {
+    }
+
+
     public BlackBox(String data) {
         this.data = data;
     }
@@ -22,6 +26,14 @@ public class BlackBox {
 
     public String getColor() {
         return data;
+    }
+
+    public String getResult(String text) {
+        return text;
+    }
+
+    public static String staticMethod(String text) {
+        return text;
     }
 
 }

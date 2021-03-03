@@ -9,6 +9,16 @@ import mamba.com.example01.model.BlackBox;
  */
 public class DemoExample01 {
 
+    public String getConstructor() {
+        BlackBox component = new BlackBox();
+        return component.getResult("something");
+    }
+
+    public String getResult(String text) {
+        BlackBox component = new BlackBox();
+        return component.getResult(text);
+    }
+
     /**
      * method with new operation
      */
@@ -16,4 +26,9 @@ public class DemoExample01 {
         BlackBox component = new BlackBox("something");
         return component.getColor();
     }
+
+    public String blackStaticMethod(String text) {
+        return BlackBox.staticMethod(text);
+    }
+
 }

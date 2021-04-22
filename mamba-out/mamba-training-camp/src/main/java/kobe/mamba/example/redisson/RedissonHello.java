@@ -4,6 +4,7 @@ package kobe.mamba.example.redisson;
 import org.redisson.Redisson;
 import org.redisson.api.RAtomicLong;
 import org.redisson.api.RLock;
+import org.redisson.api.RSet;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 import org.redisson.config.TransportMode;
@@ -33,6 +34,14 @@ public class RedissonHello {
                 .addNodeAddress("redis://127.0.0.1:7002");
 
         RedissonClient redissonClient = Redisson.create(config);
+
+
+        RSet<String> set = redissonClient.getSet("set");
+        set.add("1");
+        set.add("2");
+        set.add("3");
+        set.forEach(System.out::println);
+
 
         RLock rLock = redissonClient.getLock("test");
         rLock.lock(5, TimeUnit.SECONDS);

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * @author mamba
@@ -15,7 +16,7 @@ import javax.persistence.Id;
  */
 @Entity
 @Data
-public class UserLike {
+public class UserLike implements Serializable {
 
     //主键id
     @Id

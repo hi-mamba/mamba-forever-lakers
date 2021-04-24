@@ -4,6 +4,7 @@ import kobe.mamba.feature.upvote.entity.UserLike;
 import kobe.mamba.feature.upvote.enums.LikedStatusEnum;
 import kobe.mamba.feature.upvote.service.LikedService;
 import kobe.mamba.feature.upvote.service.RedisService;
+import kobe.mamba.web.drools.repository.UserLikeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,8 +28,8 @@ import java.util.List;
 @Slf4j
 public class LikedServiceImpl implements LikedService {
 
-    //@Resource
-    //UserLikeRepository likeRepository;
+    @Resource
+    UserLikeRepository likeRepository;
 
     @Resource
     RedisService redisService;
@@ -37,7 +38,6 @@ public class LikedServiceImpl implements LikedService {
   //  UserService userService;
 
     @Override
-    @Resource
     @Transactional
     public UserLike save(UserLike userLike) {
       // return likeRepository.save(userLike);

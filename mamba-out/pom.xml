@@ -30,6 +30,8 @@
         <mysql.version>8.0.22</mysql.version>
         <redisson.version>3.15.3</redisson.version>
         <netty-all.version>4.1.63.Final</netty-all.version>
+        <commons-pools.version>2.9.0</commons-pools.version>
+        <flyway.version>6.5.0</flyway.version>
     </properties>
 
     <!-- 项目第三方JAR 版本统一管理 -->
@@ -41,6 +43,12 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons.lang3.version}</version>
+            </dependency>
+            <!-- lettuce pool 缓存连接池-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pools.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
@@ -149,6 +157,11 @@
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty-all.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-core</artifactId>
+                <version>${flyway.version}</version>
             </dependency>
 
         </dependencies>

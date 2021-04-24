@@ -25,6 +25,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -54,12 +56,16 @@ public class RedissonExample {
         //构建项目的时候可以根据项目指定环境的不同来指定不同的EnventLoopGroup提升性能。
         // 例如开发环境 windows可以使用java的NIO ，mac可以使用netty定制的KqueueSelector.
         // 生产环境一般为linux则可以使用netty定制的EpollSelector来提高负载性能
-        //config.setTransportMode(TransportMode.NIO);
-        config.useClusterServers()
-                .setScanInterval(2000) // 集群状态扫描间隔时间，单位是毫秒
+       // config.setTransportMode(TransportMode.NIO);
+        //config.useClusterServers()
+              //  .setScanInterval(2000) // 集群状态扫描间隔时间，单位是毫秒
                 //可以用"rediss://"来启用SSL连接
-                .addNodeAddress("redis://127.0.0.1:7000", "redis://127.0.0.1:7001")
-                .addNodeAddress("redis://127.0.0.1:7002");
+                //TODO 如果  (error) CLUSTERDOWN Hash slot not served，这里地址包含 salve，需要修改成 master
+                //
+               // .addNodeAddress("redis://127.0.0.1:7000", "redis://127.0.0.1:7001")
+               // .addNodeAddress("redis://127.0.0.1:7002"),
+        // 单机
+        config.useSingleServer().setAddress("redis://127.0.0.1:6379");
 
         client = Redisson.create(config);
 
@@ -168,16 +174,47 @@ public class RedissonExample {
                 lock.lock();
                 try {
                     System.out.println(Thread.currentThread() + "-" + System.currentTimeMillis() + "-" + "获取了锁");
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
+                    System.out.println("#" + Thread.currentThread().getName() + "," + lock.isLocked());
                     lock.unlock();
                 }
             }).start();
         }
         Thread.sleep(1000 * 5);
     }
+
+    @Test
+    public void lock2() throws InterruptedException {
+        RLock lock = client.getLock("lock");
+
+        Executor executor = Executors.newFixedThreadPool(5);
+
+        for (int i = 0; i < 8; i++) {
+            int finalI = i;
+            executor.execute(() -> {
+                boolean getLock = lock.tryLock();
+                try {
+                    if (getLock) {
+                        System.out.println(Thread.currentThread() + "-" + System.currentTimeMillis() + "-" + "获取了锁");
+                        Thread.sleep(500);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    System.out.println(finalI + "#########" + Thread.currentThread().getName() + "," + getLock);
+                    if (lock.isLocked()) {
+                        System.out.println(finalI + "释放锁 ####" + Thread.currentThread().getName());
+                        lock.unlock();
+                    }
+                }
+            });
+        }
+        Thread.sleep(1000 * 7);
+    }
+
 
     @Test
     public void bitSet() {

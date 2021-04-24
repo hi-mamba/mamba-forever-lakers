@@ -11,7 +11,15 @@ import java.util.concurrent.TimeUnit;
  * @author pankui
  * @date 2021/4/24
  * <pre>
+ *              redisTemplate.opsForValue();//操作字符串
  *
+ *              redisTemplate.opsForHash();//操作hash
+ *
+ *              redisTemplate.opsForList();//操作list
+ *
+ *              redisTemplate.opsForSet();//操作set
+ *
+ *              redisTemplate.opsForZSet();//操作有序set
  * </pre>
  */
 @Slf4j
@@ -27,4 +35,5 @@ public class RedisExampleService {
 
         log.info("### ={}", redisTemplate.opsForValue().get("test"));
     }
+
 }

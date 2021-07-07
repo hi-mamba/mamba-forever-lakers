@@ -9,24 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>qr-code</artifactId>
+    <artifactId>mamba-example</artifactId>
 
+    <properties>
+        <maven.compiler.source>12</maven.compiler.source>
+        <maven.compiler.target>12</maven.compiler.target>
+    </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>javase</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>space.mamba</groupId>
             <artifactId>mamba-common</artifactId>
         </dependency>
     </dependencies>
-
 
 </project>

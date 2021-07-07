@@ -11,6 +11,8 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
+import space.mamba.common.annotion.IgnoreResponseData;
+import space.mamba.common.utils.JacksonUtils;
 import space.mamba.vo.ResponseData;
 
 /**
@@ -24,7 +26,9 @@ public class ResponseBodyHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return true;
+        //这个方法如果返回false就表示不执行统一返回体的封装逻辑
+        //如果异常，这里获取不到这个注解
+        return !returnType.hasMethodAnnotation(IgnoreResponseData.class);
     }
 
     @Override
@@ -38,6 +42,19 @@ public class ResponseBodyHandler implements ResponseBodyAdvice<Object> {
                 return body;
             }
 
+            //返回值为空 或者 string 的情况
+            // 字符串在不声明Content-Type的情况下优先使用StringHttpMessageConverter ，就导致了转换异常
+            // https://segmentfault.com/a/1190000039974533
+            if (body == null || body instanceof String) {
+                responseData = new ResponseData<>(body);
+                //TODO 优化,或者这样判断判断 selectedConverterType.equals(StringHttpMessageConverter.class)
+                if (returnType.getMethod().getReturnType().getName().equals(String.class.getName())) {
+                    response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
+                    return JacksonUtils.toJSONString(responseData);
+                }
+                return responseData;
+            }
+            //防止重复包裹的问题出现
             if (body instanceof ResponseData) {
                 return body;
             }
@@ -48,7 +65,7 @@ public class ResponseBodyHandler implements ResponseBodyAdvice<Object> {
             }
 
             int status = ((ServletServerHttpResponse) response).getServletResponse().getStatus();
-            //标准http请求异常
+
             if (status != HttpStatus.OK.value()) {
                 responseData = new ResponseData<>(false, String.valueOf(status), null, body);
                 return responseData;

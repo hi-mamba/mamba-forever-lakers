@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import space.mamba.common.annotion.IgnoreResponseData;
 import space.mamba.domain.User;
 import space.mamba.vo.PageResponseData;
 import space.mamba.vo.Paging;
@@ -44,5 +45,23 @@ public class UserController {
         paging.setTotal(10L);
         pageResponseData.setPaging(paging);
         return pageResponseData;
+    }
+
+    @GetMapping("/get_str")
+    public String getStr(){
+        //返回了一个字符串
+        return "baidu.com";
+    }
+
+    @IgnoreResponseData
+    @GetMapping("/get2")
+    public User ingnoreResponseData(Long userId) {
+        if (userId.equals(0L)) {
+            throw new IllegalArgumentException("test");
+        }
+        User user = new User();
+        user.setId(userId);
+        user.setName("test");
+        return user;
     }
 }

@@ -10,6 +10,9 @@ import java.io.Serializable;
  * Description
  * <p>
  * @author mamba
+ *
+ * https://segmentfault.com/a/1190000039974533
+ *
  */
 @Getter
 @Setter

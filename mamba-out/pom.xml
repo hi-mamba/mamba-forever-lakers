@@ -30,6 +30,7 @@
         <commons-pools.version>2.9.0</commons-pools.version>
         <flyway.version>6.5.0</flyway.version>
         <mamba-common.version>1.0-SNAPSHOT</mamba-common.version>
+        <hutool-all.version>5.7.5</hutool-all.version>
     </properties>
 
     <!-- 项目第三方JAR 版本统一管理 -->
@@ -160,6 +161,12 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok-version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -185,7 +192,6 @@
         <module>mq-example</module>
         <module>mamba-example</module>
         <module>mamba-common</module>
-        <module>project-template</module>
     </modules>
 
 

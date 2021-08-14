@@ -31,6 +31,7 @@
         <flyway.version>6.5.0</flyway.version>
         <mamba-common.version>1.0-SNAPSHOT</mamba-common.version>
         <hutool-all.version>5.7.5</hutool-all.version>
+        <spring.cloud.alibaba.version>2.2.6.RELEASE</spring.cloud.alibaba.version>
     </properties>
 
     <!-- 项目第三方JAR 版本统一管理 -->
@@ -52,6 +53,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -192,6 +200,7 @@
         <module>mq-example</module>
         <module>mamba-example</module>
         <module>mamba-common</module>
+        <module>mamba-service</module>
     </modules>
 
 

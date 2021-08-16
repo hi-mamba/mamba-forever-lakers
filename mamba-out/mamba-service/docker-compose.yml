@@ -6,14 +6,14 @@ services:
     container_name: mysql57
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: mamba
       MYSQL_DATABASE: nacos
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_USER: mamba
+      MYSQL_PASSWORD: mamba
     ports:
       - 3306:3306
     volumes:
-      - ./docker/mysql:/docker-entrypoint-initdb.d/
+      - ./docker/mysql:/docker-entrypoint-initdb.d
   nacos:
     image: nacos/nacos-server:2.0.3
     container_name: nacos
@@ -27,8 +27,8 @@ services:
       MYSQL_SERVICE_HOST: mysql5.7
       MYSQL_SERVICE_DB_NAME: nacos
       MYSQL_SERVICE_PORT: 3306
-      MYSQL_SERVICE_USER: root
-      MYSQL_SERVICE_PASSWORD: root
+      MYSQL_SERVICE_USER: mamba  # 注意这里不能初始化用户名为 user
+      MYSQL_SERVICE_PASSWORD: mamba
       NACOS_APPLICATION_PORT: 8848
       JVM_XMS: 512m
       JVM_MMS: 320m

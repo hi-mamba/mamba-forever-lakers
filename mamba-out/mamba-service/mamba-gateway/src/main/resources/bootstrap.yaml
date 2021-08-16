@@ -1,7 +1,6 @@
 spring:
   application:
     name: mamba-gateway
-
   cloud:
     nacos:
       # Nacos Config 配置项，对应 NacosConfigProperties 配置属性类

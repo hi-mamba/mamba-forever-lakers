@@ -4,9 +4,9 @@ spring:
     gateway:
       # 路由配置项，对应 RouteDefinition 数组
       routes:
-        - id: ReactiveCompositeDiscoveryClient_user-service # 路由的编号
-          uri: lb://lakers-family-service # 路由到的目标地址
+        - id: ReactiveCompositeDiscoveryClient_lakers-family-service # 路由的编号
+          uri: lb://lakers-family-service # 路由到的目标地址, lb:// 前缀，表示将请求负载均衡转发到对应的服务的实例。
           predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
-            - Path=/user/**
+            - Path=/**
           filters:
             - StripPrefix=1

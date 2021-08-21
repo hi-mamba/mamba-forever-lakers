@@ -13,7 +13,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>mamba-gateway</module>
-        <module>lakers-family-service</module>
+        <module>lakers-family</module>
+        <module>lakers-auth</module>
+        <module>lakers-utils</module>
     </modules>
 
     <properties>
@@ -24,5 +26,21 @@
     <dependencies>
 
     </dependencies>
+
+    <!-- 代码库 -->
+    <repositories>
+        <repository>
+            <id>maven-ali</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>

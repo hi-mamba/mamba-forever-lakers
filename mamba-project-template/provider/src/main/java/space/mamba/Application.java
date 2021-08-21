@@ -8,8 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 /**
- * @author liyan16
- * @create 2020/5/9 11:59
+ * @author mamba
  */
 @EnableCaching
 @SpringBootApplication(scanBasePackages = "space.mamba")

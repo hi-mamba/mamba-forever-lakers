@@ -1,9 +1,9 @@
 package space.mamba;
 
-import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * @author pankui
@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * </pre>
  */
 @MapperScan("space.mamba.dao")
-@SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class ServiceApplication {
 
     public static void main(String[] args) {

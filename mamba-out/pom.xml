@@ -32,6 +32,7 @@
         <mamba-common.version>1.0-SNAPSHOT</mamba-common.version>
         <hutool-all.version>5.7.5</hutool-all.version>
         <spring.cloud.alibaba.version>2.2.6.RELEASE</spring.cloud.alibaba.version>
+        <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
     </properties>
 
     <!-- 项目第三方JAR 版本统一管理 -->
@@ -173,6 +174,13 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-all.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
 
         </dependencies>

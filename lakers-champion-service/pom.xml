@@ -3,9 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>space.mamba</groupId>
-    <artifactId>mamba-out</artifactId>
+    <artifactId>lakers-champion-service</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -28,21 +27,23 @@
         <netty-all.version>4.1.63.Final</netty-all.version>
         <commons-pools.version>2.9.0</commons-pools.version>
         <flyway.version>6.5.0</flyway.version>
-        <mamba-common.version>1.0-SNAPSHOT</mamba-common.version>
         <hutool-all.version>5.7.5</hutool-all.version>
         <spring.cloud.alibaba.version>2.2.6.RELEASE</spring.cloud.alibaba.version>
         <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
         <jbcrypt.version>0.4</jbcrypt.version>
     </properties>
 
+    <modules>
+        <module>mamba-gateway</module>
+        <module>lakers-family</module>
+        <module>lakers-auth</module>
+        <module>lakers-utils</module>
+    </modules>
+
+
     <!-- 项目第三方JAR 版本统一管理 -->
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>space.mamba</groupId>
-                <artifactId>mamba-common</artifactId>
-                <version>${mamba-common.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -182,31 +183,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- 代码库 -->
-    <repositories>
-        <repository>
-            <id>maven-ali</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <modules>
-        <module>mamba-training-camp</module>
-        <module>qr-code</module>
-        <module>mq-example</module>
-        <module>mamba-example</module>
-        <module>mamba-common</module>
-    </modules>
-
-
     <build>
         <pluginManagement>
             <plugins>
@@ -226,5 +202,21 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <!-- 代码库 -->
+    <repositories>
+        <repository>
+            <id>maven-ali</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>

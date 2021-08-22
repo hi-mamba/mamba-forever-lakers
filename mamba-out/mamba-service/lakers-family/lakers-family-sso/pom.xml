@@ -55,10 +55,10 @@
         而不是直接使用的 Spring Security，
         因为前者做了一些自动化配置的工作，使用起来会更方便
         -->
-        <dependency>
+      <!--  <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- 使用Redis存储令牌 -->
         <dependency>

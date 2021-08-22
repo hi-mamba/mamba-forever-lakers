@@ -28,14 +28,14 @@ import java.util.Set;
  * </pre>
  */
 
-@Component
-@AllArgsConstructor
+//@Component
+//@AllArgsConstructor
 @Slf4j
-public class AuthorizationManager implements ReactiveAuthorizationManager<AuthorizationContext> {
+public class AuthorizationManager{ //implements ReactiveAuthorizationManager<AuthorizationContext> {
 
    // private RedisTemplate redisTemplate;
 
-    @Override
+    //@Override
     public Mono<AuthorizationDecision> check(Mono<Authentication> mono, AuthorizationContext authorizationContext) {
 
         ServerHttpRequest request = authorizationContext.getExchange().getRequest();

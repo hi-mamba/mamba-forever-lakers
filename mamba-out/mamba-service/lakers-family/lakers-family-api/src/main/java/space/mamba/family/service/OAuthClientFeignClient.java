@@ -13,7 +13,7 @@ import space.mamba.utils.vo.DataResponse;
  *
  * </pre>
  */
-@FeignClient(value = "lakers-family-sso")
+@FeignClient(value = "lakers-family-sso",contextId = "test")
 public interface OAuthClientFeignClient {
 
 

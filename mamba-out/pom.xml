@@ -10,9 +10,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>12</maven.compiler.source>
-        <maven.compiler.target>12</maven.compiler.target>
-        <lombok-version>1.18.18</lombok-version>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR11</spring-cloud.version>
         <commons.lang3.version>3.9</commons.lang3.version>
@@ -22,7 +21,7 @@
         <easyexcel-api>2.2.3</easyexcel-api>
         <google.zxing.version>3.4.1</google.zxing.version>
         <drools.version>7.46.0.Final</drools.version>
-        <lombok.version>1.18.16</lombok.version>
+        <lombok.version>1.18.20</lombok.version>
         <guava.version>30.0-jre</guava.version>
         <mysql.version>8.0.22</mysql.version>
         <redisson.version>3.15.3</redisson.version>
@@ -33,6 +32,7 @@
         <hutool-all.version>5.7.5</hutool-all.version>
         <spring.cloud.alibaba.version>2.2.6.RELEASE</spring.cloud.alibaba.version>
         <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
+        <jbcrypt.version>0.4</jbcrypt.version>
     </properties>
 
     <!-- 项目第三方JAR 版本统一管理 -->
@@ -165,11 +165,7 @@
                 <artifactId>flyway-core</artifactId>
                 <version>${flyway.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok-version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>

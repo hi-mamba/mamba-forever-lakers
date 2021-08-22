@@ -6,20 +6,13 @@ spring:
       # Nacos 作为注册中心的配置项
       discovery:
         server-addr: 127.0.0.1:8848 # Nacos 服务器地址 "'lb://'+serviceId"
+        enabled: on
 
 server:
   port: ${random.int[10000,19999]}
   #  port: 18080  # 服务器端口。默认为 8080
 
-security:
-  oauth2:
-    client:
-      client-id: pig
-      client-secret: pig
-      user-authorization-uri: http://localhost:8801/oauth/authorize
-      access-token-uri: http://localhost:8801/oauth/token
-      scope: server
-    resource:
-      jwt:
-        key-uri: http://localhost:8801/oauth/token_key
-  sessions: never
+
+jwt:
+  secret: BvPHGM8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadwezxgeEByY
+  expiration: 86400

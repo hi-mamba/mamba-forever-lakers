@@ -1,15 +1,4 @@
 package space.mamba.gateway.config;
-import io.jsonwebtoken.Claims;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.cloud.gateway.filter.GatewayFilter;
-import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.http.server.reactive.ServerHttpResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.server.ServerWebExchange;
-import reactor.core.publisher.Mono;
 
 /**
  * @author pankui
@@ -20,10 +9,10 @@ import reactor.core.publisher.Mono;
  */
 
 
-@RefreshScope
-@Component
-public class AuthenticationFilter implements GatewayFilter {
-
+//@RefreshScope
+//@Component
+public class AuthenticationFilter {//} implements GatewayFilter {
+/*
     @Autowired
     private RouterValidator routerValidator;
     @Autowired
@@ -50,7 +39,7 @@ public class AuthenticationFilter implements GatewayFilter {
     }
 
 
-    /*PRIVATE*/
+    *//*PRIVATE*//*
 
     private Mono<Void> onError(ServerWebExchange exchange, String err, HttpStatus httpStatus) {
         ServerHttpResponse response = exchange.getResponse();
@@ -72,5 +61,5 @@ public class AuthenticationFilter implements GatewayFilter {
                 .header("id", String.valueOf(claims.get("id")))
                 .header("role", String.valueOf(claims.get("role")))
                 .build();
-    }
+    }*/
 }

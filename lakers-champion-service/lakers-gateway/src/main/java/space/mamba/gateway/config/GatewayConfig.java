@@ -14,9 +14,9 @@ import javax.annotation.Resource;
  *
  * </pre>
  */
-@Configuration
+//@Configuration
 public class GatewayConfig {
-
+/*
     @Resource
     AuthenticationFilter filter;
 
@@ -31,5 +31,5 @@ public class GatewayConfig {
                         .filters(f -> f.filter(filter))
                         .uri("lb://lakers-auth"))
                 .build();
-    }
+    }*/
 }

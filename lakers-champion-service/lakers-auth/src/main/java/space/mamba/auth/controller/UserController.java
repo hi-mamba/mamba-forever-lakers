@@ -3,7 +3,7 @@ package space.mamba.auth.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import space.mamba.family.resp.UserDTO;
+import space.mamba.domain.UserDTO;
 import space.mamba.family.service.UserFeignClient;
 
 import javax.annotation.Resource;

@@ -34,10 +34,11 @@
     </properties>
 
     <modules>
-        <module>mamba-gateway</module>
-        <module>lakers-family</module>
+        <module>lakers-gateway</module>
+        <module>lakers-admin</module>
         <module>lakers-auth</module>
-        <module>lakers-utils</module>
+        <module>lakers-common</module>
+        <module>lakers-portal</module>
     </modules>
 
 
@@ -180,6 +181,11 @@
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>space.mamba</groupId>
+                <artifactId>lakers-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

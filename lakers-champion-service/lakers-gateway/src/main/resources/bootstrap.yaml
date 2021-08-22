@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: mamba-gateway
+    name: lakers-gateway
   cloud:
     nacos:
       # Nacos Config 配置项，对应 NacosConfigProperties 配置属性类
@@ -11,6 +11,32 @@ spring:
         group: DEFAULT_GROUP # 使用的 Nacos 配置分组，默认为 DEFAULT_GROUP
         name: # 使用的 Nacos 配置集的 dataId，默认为 spring.application.name
         file-extension: yaml # 使用的 Nacos 配置集的 dataId 的文件拓展名，同时也是 Nacos 配置集的配置格式，默认为 properties
+    gateway:
+      routes: #配置路由路径
+        - id: mall-auth
+          uri: lb://lakers-auth
+          predicates:
+            - Path=/lakers-auth/**
+          filters:
+            - StripPrefix=1
+        - id: lakers-admin-service
+          uri: lb://lakers-admin-service
+          predicates:
+            - Path=/lakers-admin-service/**
+          filters:
+            - StripPrefix=1
+        - id: mall-portal
+          uri: lb://lakers-portal-service
+          predicates:
+            - Path=/lakers-portal-service/**
+          filters:
+            - StripPrefix=1
+        security:
+          oauth2:
+            resourceserver:
+              jwt:
+                jwk-set-uri: 'http://localhost:8201/mall-auth/rsa/publicKey' #配置RSA的公钥访问地址
+
 server:
   port: 8888  # 服务器端口。默认为 8080
 

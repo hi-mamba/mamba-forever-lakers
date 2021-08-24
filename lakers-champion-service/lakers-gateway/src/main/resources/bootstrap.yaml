@@ -16,26 +16,26 @@ spring:
         - id: mall-auth
           uri: lb://lakers-auth
           predicates:
-            - Path=/lakers-auth/**
+            - Path=/auth/**
           filters:
             - StripPrefix=1
         - id: lakers-admin-service
           uri: lb://lakers-admin-service
           predicates:
-            - Path=/lakers-admin-service/**
+            - Path=/admin/**
           filters:
             - StripPrefix=1
         - id: mall-portal
           uri: lb://lakers-portal-service
           predicates:
-            - Path=/lakers-portal-service/**
+            - Path=/api/**
           filters:
             - StripPrefix=1
-        security:
-          oauth2:
-            resourceserver:
-              jwt:
-                jwk-set-uri: 'http://localhost:8201/mall-auth/rsa/publicKey' #配置RSA的公钥访问地址
+  security:
+      oauth2:
+        resourceserver:
+          jwt:
+            jwk-set-uri: 'http://localhost:13310/rsa/publicKey' #配置RSA的公钥访问地址
 
 server:
   port: 8888  # 服务器端口。默认为 8080
@@ -43,3 +43,10 @@ server:
 
 jwt:
   secret: BvPHGM8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadwezxgeEByY
+
+secure:
+  ignore:
+    urls: #配置白名单路径
+      - "/actuator/**"
+      - "/auth/oauth/token"
+      - "/auth/oauth/token"

@@ -15,3 +15,16 @@
 spring cloud feign报错：Load balancer does not have available server for clien
 
 类似问题：<https://blog.csdn.net/qq32933432/article/details/105823229>
+
+
+## 遇到异常
+
+## com.sun.xml.bind.v2.runtime.reflect.opt.Injector.defineClass" is null
+<https://gitmemory.com/issue/spring-projects/spring-boot/26637/846425446>
+在启动的时候 VM 添加以下配置 
+> --illegal-access=permit
+
+Quickly I found this post: https://www.gitmemory.com/issue/highsource/maven-jaxb2-plugin/201/802605932 
+That points to JEP 396: Strongly Encapsulate JDK Internals by Default (JDK-8256299). 
+That triggered this behavior. Adding --illegal-access=permit to the VM options resolves the problem. 
+Not sure if this is the "best solution" but at least a workaround for now.

@@ -39,6 +39,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     private final JwtTokenEnhancer jwtTokenEnhancer;
 
+    /**
+     * 配置客户端方法
+     * */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()

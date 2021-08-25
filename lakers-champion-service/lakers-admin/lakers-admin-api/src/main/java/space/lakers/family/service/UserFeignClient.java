@@ -16,7 +16,7 @@ import space.lakers.family.resp.vo.UserVO;
  *
  * </pre>
  */
-@FeignClient(value = "lakers-admin-service",path = "/api/lakers/users")
+@FeignClient(value = "lakers-admin-service",path = "/admin/lakers/users")
 public interface UserFeignClient {
 
     /**

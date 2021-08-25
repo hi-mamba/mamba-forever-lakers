@@ -22,7 +22,7 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api/lakers/users")
+@RequestMapping("/admin/lakers/users")
 public class UsersController implements UserFeignClient {
 
     @Resource

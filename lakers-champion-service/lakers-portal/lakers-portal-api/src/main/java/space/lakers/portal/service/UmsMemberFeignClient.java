@@ -12,13 +12,13 @@ import space.lakers.domain.UserDTO;
  *
  * </pre>
  */
-@FeignClient(value = "lakers-portal-service", path = "/api/sso")
+@FeignClient(value = "lakers-portal-service", path = "/api/lakers/sso")
 public interface UmsMemberFeignClient {
 
     /**
      * @param username
      * @return
      */
-    @GetMapping("/sso/loadUserByUsername")
+    @GetMapping("/loadUserByUsername")
     UserDTO loadUserByUsername(@RequestParam(value = "username") String username);
 }

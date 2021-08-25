@@ -1,5 +1,6 @@
 package space.lakers.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,6 +20,7 @@ import java.util.List;
 @Getter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO implements Serializable {
 
     private Long id;
@@ -32,4 +34,12 @@ public class UserDTO implements Serializable {
     private String clientId;
 
     private List<String> roles;
+
+    public UserDTO(Long id, String username, String password, Integer status,List<String> roles) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.status = status;
+        this.roles = roles;
+    }
 }

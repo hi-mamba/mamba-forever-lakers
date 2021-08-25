@@ -13,6 +13,8 @@ import reactor.core.publisher.Mono;
 import space.lakers.utils.vo.DataResponse;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 /**
  * @author pankui
  * @date 2021/8/24
@@ -28,7 +30,7 @@ public class RestAuthenticationEntryPoint implements ServerAuthenticationEntryPo
         response.setStatusCode(HttpStatus.OK);
         response.getHeaders().add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         String body= JSONUtil.toJsonStr(DataResponse.fail(e.getMessage()));
-        DataBuffer buffer =  response.bufferFactory().wrap(body.getBytes(Charset.forName("UTF-8")));
+        DataBuffer buffer =  response.bufferFactory().wrap(body.getBytes(StandardCharsets.UTF_8));
         return response.writeWith(Mono.just(buffer));
     }
 }

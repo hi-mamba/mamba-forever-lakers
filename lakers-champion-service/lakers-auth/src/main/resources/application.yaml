@@ -15,7 +15,7 @@ spring:
         exposure:
           include: "*"
 server:
-  port: ${random.int[10000,19999]}
+  port: 15032
   #  port: 18080  # 服务器端口。默认为 8080
 
 

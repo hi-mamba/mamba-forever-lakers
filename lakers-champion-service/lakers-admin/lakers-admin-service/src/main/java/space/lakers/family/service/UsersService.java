@@ -16,4 +16,6 @@ public interface UsersService extends IService<Users>{
      * @return
      */
     UserVO save(AuthRequest authRequest);
+
+    Users getByUser(Long id);
 }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import space.lakers.domain.UserDTO;
 import space.lakers.family.componet.LoginUserHolder;
+import space.lakers.family.model.Users;
 import space.lakers.family.req.AuthRequest;
 import space.lakers.family.resp.vo.UserVO;
 import space.lakers.family.service.UserFeignClient;
@@ -25,6 +26,10 @@ import javax.annotation.Resource;
 @RequestMapping("/admin/lakers/users")
 public class UsersController implements UserFeignClient {
 
+
+    @Resource
+    private LoginUserHolder loginUserHolder;
+
     @Resource
     private UsersService usersService;
 
@@ -41,12 +46,15 @@ public class UsersController implements UserFeignClient {
         return usersService.save(authRequest);
     }
 
-
-    @Resource
-    private LoginUserHolder loginUserHolder;
-
     @GetMapping("/currentUser")
     public UserDTO currentUser() {
         return loginUserHolder.getCurrentUser();
+    }
+
+    @GetMapping("/get")
+    public Users getById(Long id) {
+       // return usersService.getById(id);
+        log.info("##### get ={}", id);
+        return new Users();
     }
 }

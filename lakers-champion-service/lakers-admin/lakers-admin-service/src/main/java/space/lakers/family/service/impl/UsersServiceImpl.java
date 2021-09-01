@@ -9,6 +9,7 @@ import space.lakers.family.req.AuthRequest;
 import space.lakers.family.resp.vo.UserVO;
 import space.lakers.family.service.UsersService;
 
+import javax.annotation.Resource;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -20,6 +21,9 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
 
     AtomicInteger atomicInteger = new AtomicInteger();
 
+    @Resource
+    private UsersMapper usersMapper;
+
     @Override
     public UserVO save(AuthRequest authRequest) {
         log.info("### save test data ={}",authRequest);
@@ -30,5 +34,10 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
         userVO.setPassword("123");
         userVO.setRole("1");
         return userVO;
+    }
+
+    @Override
+    public Users getByUser(Long id) {
+        return usersMapper.selectById(id);
     }
 }

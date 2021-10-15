@@ -1,7 +1,7 @@
 package space.lakers.service.dubbo;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/7/7
  * <pre>
  *

@@ -4,10 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019-07-28
  * <pre>
  *      缓存雪崩问题：
@@ -38,7 +39,7 @@ import java.util.concurrent.TimeUnit;
 public class CacheAvalancheService {
 
 
-    @Autowired
+    @Resource
     private RedisTemplate<String, Object> template;
 
     /**

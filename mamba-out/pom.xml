@@ -204,6 +204,7 @@
         <module>mq-example</module>
         <module>mamba-example</module>
         <module>mamba-common</module>
+        <module>seconds-kill</module>
     </modules>
 
 

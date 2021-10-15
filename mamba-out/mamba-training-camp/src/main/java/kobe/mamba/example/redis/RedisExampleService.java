@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/4/24
  * <pre>
  *              redisTemplate.opsForValue();//操作字符串

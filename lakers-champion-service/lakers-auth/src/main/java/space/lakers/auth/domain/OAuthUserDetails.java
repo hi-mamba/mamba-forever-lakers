@@ -1,6 +1,6 @@
 package space.lakers.auth.domain;
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/21
  * <pre>
  *

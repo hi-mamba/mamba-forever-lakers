@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author pankui
+ * @author mini kobe
  * <p>
  * 由于采用了分表操作，原来mysql的AUTO_INCREMENT这个就不能使用了。这里就是看看shardingjdbc的id生成规则。
  */

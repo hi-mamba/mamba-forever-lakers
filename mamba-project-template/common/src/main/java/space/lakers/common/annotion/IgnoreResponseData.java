@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/7/7
  * <pre>
  *     https://segmentfault.com/a/1190000039974533

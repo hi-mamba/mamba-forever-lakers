@@ -12,12 +12,13 @@ import space.lakers.auth.domain.Oauth2TokenDTO;
 import space.lakers.constant.AuthConstant;
 import space.lakers.utils.vo.DataResponse;
 
+import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.Map;
 
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/22
  * <pre>
  *
@@ -35,7 +36,7 @@ import java.util.Map;
 @RequestMapping("/oauth")
 public class AuthController {
 
-    @Autowired
+    @Resource
     private TokenEndpoint tokenEndpoint;
 
     //@ApiOperation("Oauth2获取token")

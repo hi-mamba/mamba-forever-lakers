@@ -10,7 +10,7 @@ import space.lakers.domain.UserDTO;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/24
  * <pre>
  *  获取登录用户信息

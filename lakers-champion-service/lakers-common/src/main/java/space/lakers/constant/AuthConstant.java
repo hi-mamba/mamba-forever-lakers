@@ -1,7 +1,7 @@
 package space.lakers.constant;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/22
  * <pre>
  *  权限相关常量定义

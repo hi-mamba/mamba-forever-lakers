@@ -4,7 +4,7 @@ import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019-08-19
  * <pre>
  *      output通道

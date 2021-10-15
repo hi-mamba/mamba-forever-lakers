@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author pankui
+ * @author mini kobe
  */
 @Slf4j
 @Service

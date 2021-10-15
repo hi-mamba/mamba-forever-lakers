@@ -1,7 +1,7 @@
 package space.lakers.family.entity;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/21
  * <pre>
  *

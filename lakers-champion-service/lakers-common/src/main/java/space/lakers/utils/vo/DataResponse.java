@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * http 单资源出参
  *
- * @author pankui
+ * @author mini kobe
  */
 @Getter
 @Setter

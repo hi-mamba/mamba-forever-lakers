@@ -10,7 +10,7 @@ import space.lakers.auth.domain.SecurityUser;
 import java.util.HashMap;
 import java.util.Map;
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/22
  * <pre>
  *   JWT内容增强器

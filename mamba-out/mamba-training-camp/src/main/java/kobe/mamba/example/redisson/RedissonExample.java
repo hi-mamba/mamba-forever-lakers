@@ -30,7 +30,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/4/20
  * <pre>
  *  https://www.bookstack.cn/read/redisson-doc-cn/config.md

@@ -3,7 +3,7 @@ package space.lakers.component.annotion;
 import java.lang.annotation.*;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019/8/23
  * <pre>
  *      开启 入参 下划线分格命名转换为驼峰

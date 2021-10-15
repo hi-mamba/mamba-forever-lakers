@@ -20,7 +20,7 @@ import space.lakers.utils.vo.DataResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/24
  * <pre>
  *
@@ -29,19 +29,19 @@ import java.util.*;
 @Service
 public class UmsMemberServiceImpl implements UmsMemberService {
 
-   // @Autowired
+   // @Resource
    // private UmsMemberMapper memberMapper;
-   // @Autowired
+   // @Resource
    // private UmsMemberLevelMapper memberLevelMapper;
-   // @Autowired
+   // @Resource
    // private UmsMemberCacheService memberCacheService;
    // @Value("${redis.key.authCode}")
    // private String REDIS_KEY_PREFIX_AUTH_CODE;
    // @Value("${redis.expire.authCode}")
    // private Long AUTH_CODE_EXPIRE_SECONDS;
-   // @Autowired
+   // @Resource
    // private AuthService authService;
-   // @Autowired
+   // @Resource
    // private HttpServletRequest request;
 //
    // @Override

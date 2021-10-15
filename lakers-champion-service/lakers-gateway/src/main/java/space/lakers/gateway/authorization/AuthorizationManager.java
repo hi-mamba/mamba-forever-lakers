@@ -1,7 +1,7 @@
 package space.lakers.gateway.authorization;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/22
  * <pre>
  *
@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
  */
 @Component
 public class AuthorizationManager implements ReactiveAuthorizationManager<AuthorizationContext> {
-   //@Autowired
+   //@Resource
    //private RedisTemplate<String, Object> redisTemplate;
 
     @Resource

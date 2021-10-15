@@ -6,7 +6,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import space.lakers.component.handle.camel.SnakeToCamelRequestMappingHandlerAdapter;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019/8/23
  * <pre>
  *      register your resolver in this way to be able to inject beans:

@@ -25,7 +25,7 @@ import java.nio.file.Path;
 import java.util.Hashtable;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2020/11/16
  * <pre>
  *  二维码、条形码工具类

@@ -8,7 +8,7 @@ import space.lakers.component.annotion.EnableSnakeToCamel;
 import java.time.LocalDateTime;
 
 /**
- * @author pankui
+ * @author mini kobe
  */
 //@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Getter

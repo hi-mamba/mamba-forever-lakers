@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author pankui
+ * @author mini kobe
  */
 @SpringBootApplication(scanBasePackages = "space.lakers.qr")
 public class Application {

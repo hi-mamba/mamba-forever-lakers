@@ -6,7 +6,7 @@ import space.lakers.family.req.AuthRequest;
 import space.lakers.family.resp.vo.UserVO;
 
 /**
- * @author pankui
+ * @author mini kobe
  */
 public interface UsersService extends IService<Users>{
 

@@ -19,7 +19,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019-07-28
  * <pre>
  *  @EnableCaching 开启缓存支持
@@ -34,7 +34,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  *     private RedisTemplate<String, Object> redisTemplate;
  *
  *
- *     RedisTemplate< String, Object>注入时用到了@Autowired，@Autowired默认按照类型装配的。
+ *     RedisTemplate< String, Object>注入时用到了@Resource，@Resource默认按照类型装配的。
  *     也就是说，想要获取RedisTemplate< String, Object>的Bean，要根据名字装配。
  *     那么自然想到使用@Resource，它默认按照名字装配
  *

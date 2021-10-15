@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/21
  * <pre>
  *  登录用户信息

@@ -1,0 +1,50 @@
+
+spring:
+  application:
+    name: seconds-kill
+  datasource:
+    url: jdbc:mysql://localhost:3306/lakers?characterEncoding=utf8&useSSL=true
+    username: mamba
+    password: mamba
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      connection-test-query: SELECT 1
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: DatebookHikariCP
+  redis:
+    cluster:
+      nodes: 127.0.0.1:7000,127.0.0.1:7001,127.0.0.1:7002
+      max-redirects: 3
+    lettuce:
+      pool:
+        max-active: 500
+        max-wait: 30000
+        max-idle: 50
+        min-idle: 10
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 127.0.0.1
+          defaultBrokerPort: 9092
+          required-acks: 1
+      bindings:
+        input:
+          destination: seconds_kill_topic  # 订阅的topic
+          contentType: application/json
+          group: student_group
+          consumer:
+            partitioned: true                 # 开启分区
+            instance-count: 2                 # 分区数量
+            instance-index: 0                 # 当前实例的下标，这里指定了一个，多实例启动时指定另一个
+            concurrency: 2
+        output:
+          destination: seconds_kill  # 订阅的topic
+          content-type: application/json            # 消息的格式
+
+# 限流
+redis:
+  limit: 5

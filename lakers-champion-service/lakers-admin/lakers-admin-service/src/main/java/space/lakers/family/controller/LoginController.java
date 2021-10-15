@@ -12,7 +12,7 @@ import space.lakers.family.utils.JwtUtils;
 import space.lakers.utils.vo.DataResponse;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/21
  * <pre>
  *
@@ -28,7 +28,7 @@ public class LoginController {
     @Value("${secretKey:123456}")
     private String secretKey;
 
-    // @Autowired
+    // @Resource
     // private StringRedisTemplate stringRedisTemplate;
 
     /**

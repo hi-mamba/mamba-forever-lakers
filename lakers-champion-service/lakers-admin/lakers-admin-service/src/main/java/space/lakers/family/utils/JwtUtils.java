@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Date;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/21
  * <pre>
  *  JWT工具类

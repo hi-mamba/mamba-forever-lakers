@@ -6,7 +6,7 @@ package space.lakers.family.entity;
 //mport com.youlai.common.base.BaseEntity;
 //mport io.swagger.annotations.ApiModelProperty;
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/21
  * <pre>
  *

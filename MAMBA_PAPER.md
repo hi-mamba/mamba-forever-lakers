@@ -66,7 +66,7 @@ jackson 只支持@ResponseBody 以及@RequestBody,
 ```java
 
 /**
- * @author pankui
+ * @author mini kobe
  */
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Getter

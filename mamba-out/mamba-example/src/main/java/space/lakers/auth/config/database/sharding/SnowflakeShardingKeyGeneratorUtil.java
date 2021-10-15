@@ -2,7 +2,7 @@ package space.lakers.auth.config.database.sharding;
 
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019/9/14
  * <pre>
  *

@@ -18,7 +18,7 @@ import space.lakers.utils.vo.DataResponse;
 import javax.annotation.Resource;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/24
  * <pre>
  *会员登录注册管理Controller

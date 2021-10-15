@@ -9,7 +9,7 @@ import space.lakers.model.UserInfo;
 /**
  * The interface User info mapper.
  *
- * @author pankui
+ * @author mini kobe
  */
 @Mapper
 public interface UserInfoMapper {

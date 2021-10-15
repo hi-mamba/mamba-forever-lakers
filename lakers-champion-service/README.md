@@ -35,3 +35,8 @@ with these grants to receive information from that secured resource.
 
 <https://github.com/igorkosandyak/spring-cloud-demo>
 
+
+## Docker下Nacos持久化配置
+
+<https://blog.csdn.net/boling_cavalry/article/details/100171289>
+

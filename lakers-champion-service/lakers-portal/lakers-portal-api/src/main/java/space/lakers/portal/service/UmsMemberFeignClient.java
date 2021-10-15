@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import space.lakers.domain.UserDTO;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/22
  * <pre>
  *

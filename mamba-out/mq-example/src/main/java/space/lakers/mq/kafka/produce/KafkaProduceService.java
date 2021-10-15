@@ -1,12 +1,13 @@
 package space.lakers.mq.kafka.produce;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.integration.support.MessageBuilder;
 import space.lakers.mq.kafka.produce.topic.ProducerSource;
 
+import javax.annotation.Resource;
+
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019-08-19
  * <pre>
  *      @EnableBinding注解在你的程序中，被@StreamListener修饰的方法可以立即连接到消息代理接收流处理事件。
@@ -19,7 +20,7 @@ import space.lakers.mq.kafka.produce.topic.ProducerSource;
 @EnableBinding(ProducerSource.class)
 public class KafkaProduceService {
 
-    @Autowired
+    @Resource
     private ProducerSource producerSource;
 
 

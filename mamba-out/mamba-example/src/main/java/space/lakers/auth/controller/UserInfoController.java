@@ -13,12 +13,13 @@ import space.lakers.component.annotion.EnableSnakeToCamel;
 import space.lakers.model.UserInfo;
 import space.lakers.service.business.UserInfoService;
 
+import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019-08-09
  * <pre>
  *
@@ -29,7 +30,7 @@ import java.util.Random;
 @RequestMapping("/api/user_info")
 public class UserInfoController {
 
-    @Autowired
+    @Resource
     private UserInfoService userInfoService;
 
     /**

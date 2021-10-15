@@ -21,7 +21,7 @@ import space.lakers.gateway.component.RestfulAccessDeniedHandler;
 import space.lakers.gateway.filter.IgnoreUrlsRemoveJwtFilter;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/24
  * <pre>
  *

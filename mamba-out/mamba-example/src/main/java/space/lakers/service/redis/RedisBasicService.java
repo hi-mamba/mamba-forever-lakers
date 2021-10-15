@@ -9,10 +9,11 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019-07-28
  * <pre>
  *      基本操作
@@ -21,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class RedisBasicService {
 
-    @Autowired
+    @Resource
     private StringRedisTemplate stringRedisTemplate;
 
     /**

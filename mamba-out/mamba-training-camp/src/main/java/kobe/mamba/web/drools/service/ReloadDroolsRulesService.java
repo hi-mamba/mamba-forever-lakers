@@ -11,6 +11,7 @@ import org.kie.api.runtime.KieContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ public class ReloadDroolsRulesService {
 
     public static KieContainer kieContainer;
 
-    @Autowired
+    @Resource
     private RuleRepository ruleRepository;
 
     public void reload() {

@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019/8/24
  * <pre>
  *      开启 入参 下划线风格命名转换为驼峰

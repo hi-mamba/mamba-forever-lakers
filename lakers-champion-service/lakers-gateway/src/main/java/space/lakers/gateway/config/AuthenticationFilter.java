@@ -1,7 +1,7 @@
 package space.lakers.gateway.config;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/21
  * <pre>
  *  全局过滤器
@@ -13,9 +13,9 @@ package space.lakers.gateway.config;
 //@Component
 public class AuthenticationFilter {//} implements GatewayFilter {
 /*
-    @Autowired
+    @Resource
     private RouterValidator routerValidator;
-    @Autowired
+    @Resource
     private JwtUtil jwtUtil;
 
     @Override

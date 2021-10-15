@@ -14,10 +14,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019/9/12
  * <pre>
  *
@@ -25,7 +26,7 @@ import java.util.Map;
  */
 public class AbstractBaseApiTest extends AbstractBaseDbTest {
 
-    @Autowired
+    @Resource
     protected WebApplicationContext ctx;
 
     protected MockMvc mockMvc;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019/8/24
  * <pre>
  *      消费者

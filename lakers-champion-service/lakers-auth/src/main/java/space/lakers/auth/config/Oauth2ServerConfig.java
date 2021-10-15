@@ -21,7 +21,7 @@ import java.security.KeyPair;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2021/8/22
  * <pre>
  * 认证服务器配置

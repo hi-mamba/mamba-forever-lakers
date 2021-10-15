@@ -10,12 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019/9/12
  * <pre>
  *   使用回滚是为了减少每执行 test 重新插入数据一次
@@ -33,7 +34,7 @@ public class AbstractBaseDbTest {
 
     private static boolean isInited = false;
 
-    @Autowired
+    @Resource
     private DataSource dataSource;
 
     @Before

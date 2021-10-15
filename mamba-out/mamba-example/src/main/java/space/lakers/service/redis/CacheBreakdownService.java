@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author pankui
+ * @author mini kobe
  * @date 2019-07-28
  * <pre>
  *      缓存击穿问题
@@ -46,7 +46,7 @@ public class CacheBreakdownService {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-    @Autowired
+    @Resource
     private RedisBasicService redisBasicService;
 
     ExecutorService execute = Executors.newFixedThreadPool(10);

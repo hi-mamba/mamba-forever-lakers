@@ -6,6 +6,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.stereotype.Component;
+import space.mamba.secondskill.common.StockWithRedis.RedisKeysConstant;
 import space.mamba.secondskill.common.utils.ScriptUtil;
 
 import javax.annotation.Resource;

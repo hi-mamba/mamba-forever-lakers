@@ -7,13 +7,16 @@
 
 -- 资源唯一标志位
 local key = KEYS[1]
+if key == nil then
+    key = "test_lua_key"
+end
 -- 限流大小
 local limit = tonumber(ARGV[1])
-
+if limit == nil then
+    limit = 5
+end
 -- 获取当前流量大小
 local currentLimit = tonumber(redis.call('get', key) or "0")
-
-redis.log("log....."+currentLimit)
 
 if currentLimit + 1 > limit then
     -- 达到限流大小 返回

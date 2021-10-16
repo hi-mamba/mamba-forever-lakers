@@ -1,5 +1,5 @@
 version: '3'
-
+# 查询docker-compose 启动日志　在这个文件当前目录执行 docker-compose logs -f
 services:
   mysql5.7:
     image: bitnami/mysql:5.7.26
@@ -35,6 +35,13 @@ services:
     image: wurstmeister/kafka  #这个镜像使用文档见https://github.com/wurstmeister/kafka-docker
     ports:
       - "9092:9092"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
     expose:
       - "9092"
     environment:

@@ -33,7 +33,7 @@ public class RedisLimit {
 
             // 执行 lua 脚本
             DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
-            // 指定 lua 脚本
+            // 指定 lua 脚本);
             redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("limit.lua")));
             // 指定返回类型
             redisScript.setResultType(Long.class);

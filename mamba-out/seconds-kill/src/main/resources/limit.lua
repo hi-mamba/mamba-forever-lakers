@@ -10,7 +10,7 @@ local key = KEYS[1]
 if key == nil then
     key = "test_lua_key"
 end
--- 限流大小
+-- 限流大小 5 个
 local limit = tonumber(ARGV[1])
 if limit == nil then
     limit = 5
